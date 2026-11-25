@@ -1,0 +1,34 @@
+[
+  {
+    "file": "assets/patient-chat-original.png",
+    "group": "patient",
+    "bytes": 286294,
+    "width": 738,
+    "height": 1600,
+    "sha256": "f38f65ad7dd4a69be56ae776704eb463cfb630dd53e9daac06cdaa48b34d2479"
+  },
+  {
+    "file": "assets/patient-visit-summary-original.png",
+    "group": "patient",
+    "bytes": 248258,
+    "width": 738,
+    "height": 1600,
+    "sha256": "9f0defd0a5ec20a7d0d370954de882ff5fd47c81f8e1c3b293522b420435aca9"
+  },
+  {
+    "file": "assets/doctor-patient-history-original.png",
+    "group": "doctor",
+    "bytes": 285487,
+    "width": 738,
+    "height": 1600,
+    "sha256": "cfd436d37d1bdae39755bcb416a8a694aee54975a5a83fc44463507601c325c9"
+  },
+  {
+    "file": "assets/doctor-schedule-chat-original.png",
+    "group": "doctor",
+    "bytes": 253092,
+    "width": 738,
+    "height": 1600,
+    "sha256": "790a4c979e32871f02c9dd60bf3b77ac6cc77dee12e374ec01156ca227b452dc"
+  }
+]

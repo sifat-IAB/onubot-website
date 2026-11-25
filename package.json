@@ -1,0 +1,14 @@
+{
+  "name": "onubot-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.mjs",
+    "start": "node server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check-site.mjs",
+    "legal:generate": "node scripts/legal-pages.mjs",
+    "test": "node tests/demo.test.mjs && node tests/media.test.mjs && node tests/install.test.mjs && node tests/legal.test.mjs"
+  }
+}

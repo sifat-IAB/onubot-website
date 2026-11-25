@@ -1,0 +1,198 @@
+1 / 6Onubot · Privacy Policy
+O N U B OT
+Privacy Policy
+Onubot · Anchorblock Technology
+Last updated: 24 November 2026
+House 432, Road 6, Avenue 5, DOHS, Dhaka 1215, Bangladesh
+Support / Privacy: admin@anchorblock.vc
+Urgent platform support: +8801400655308
+The support phone is not a substitute for emergency medical care.
+1. Responsibility and scope
+This Privacy Policy explains how Anchorblock Technology, House 432, Road 6, Avenue 5, DOHS,
+Dhaka 1215, Bangladesh, handles personal information through Onubot’s patient and doctor
+services. For privacy questions or requests, email admin@anchorblock.vc. For urgent platform
+support, call +8801400655308; this is not an emergency medical service. This Policy describes
+our handling of information. Treating clinicians and external service providers may have
+separate legal responsibilities. This notice is not blanket consent for every use of personal
+information, nor is it a certification that all legal and technical safeguards have been
+independently audited.
+2. Information we collect or receive
+The information we handle depends on the features you use. You may provide information
+directly; an authorized clinician may create consultation records; and sign-in or infrastructure
+providers may supply account and technical information. Guest conversations may still use an
+app-generated authentication or session identifier. Health information may include physical or
+mental-health details, a child’s information, and sensitive information entered in a message.
+Submit information only when you have the authority to share it. The categories below describe
+information we handle, not permission to access everything on your device.
+Account and identity
+Name, email, phone, profile photo, sign-in identifiers and verification status.
+Health profile
+Age or birth date, gender, height, weight, BMI, blood group, conditions, medicines and allergies
+you provide.
+
+2 / 6Onubot · Privacy Policy
+Chats and uploads
+Messages, voice-derived text, selected images/PDFs, prescriptions, reports, extracted text and
+corrections.
+Consultations and visits
+Doctor, date, time, mode, appointment status, shared clinical details, audio, transcripts, notes,
+summaries and issued prescriptions.
+Doctor verification
+Professional and clinic details, BMDC information, qualifications and submitted identity or
+credential documents.
+Transactions, if enabled
+Amounts, references, status, receipts, refunds and relevant doctor payout details.
+Technical and communication data
+Device/app information, IP and connection data, security signals, notification tokens, diagnostic
+logs and support messages.
+Preferences and local cache
+Language, theme and notification choices, local session information and working copies used by
+the app.
+3. Why we use information
+We use relevant information to authenticate accounts, review doctor applications, maintain
+profiles and authorized records, provide AI and document features, arrange consultations,
+support clinician-reviewed notes and prescriptions, manage bookings and enabled payment
+services, deliver requested communications, and protect the platform. Technical diagnostics
+help us investigate failures and operate AI services. Processing must have an appropriate legal
+basis. Specific consent must be obtained where required, including for sensitive health
+information, recording and optional features. We limit use to the purposes described here or
+another purpose lawfully explained to you.
+4. AI processing, document extraction and photos
+When you use AI features, relevant questions, conversation history, profile information, selected
+visit records and uploaded content may be sent to Google’s AI or cloud services to generate
+answers, extract information, transcribe speech or read text aloud. Photos may be processed for
+a profile or an optional creative feature you choose. Processing may take place outside your
+phone. Removing a name does not necessarily make the remaining clinical information
+anonymous. Using an AI feature does not authorize unrelated general-purpose model training.
+Any additional purpose requires an appropriate legal basis and the required notice or consent.
+Provider handling also depends on applicable contracts and settings.
+
+3 / 6Onubot · Privacy Policy
+5. Consultation audio and generated records
+Onubot’s consultation workflow supports server-side audio recording through LiveKit and
+storage in Google Cloud. This enables speech transcription and preparation of draft consultation
+notes, summaries and prescriptions. Live audio and video are transmitted to provide a video call;
+the recording configuration stores audio only. Advance recording notice and any required
+specific consent must be obtained separately from camera or microphone permission. The
+responsible clinician reviews clinical drafts before issue. The workflow attempts to remove audio
+after successful clinician-reviewed processing. Recordings may remain pending if processing or
+cleanup fails; immediate deletion after every call is not guaranteed.
+6. Who receives information
+Information may be shared with your selected or otherwise authorized clinicians, people you
+choose to share it with, and authorized operational personnel who need it for the stated service
+or support purpose. The providers below receive information relevant to their functions; their
+inclusion does not mean every type of data is sent during every use. Appropriate disclosures
+may also be required by a binding legal request, a serious safety concern or a lawful business
+transfer, subject to safeguards and notice where required. Redacted diagnostic content may still
+contain sensitive information and must not be treated as fully anonymous.
+Google / Firebase / Google Cloud
+Authentication, cloud records and files, backend processing, notifications and Crashlytics
+diagnostics.
+Google AI / Vertex AI / speech services
+Relevant health questions, context, selected documents or audio/text for generation, extraction,
+transcription and read aloud.
+LiveKit Cloud
+Live audio/video, connection information and server-side consultation audio recording.
+Serper and public search/source websites
+Search terms for medical evidence or medicine information; queries are derived from the
+request and should minimize private details.
+Google Workspace / Gmail email delivery
+Recipient and message information for verification, welcome, appointment and service emails.
+Google Calendar, when you choose export
+Appointment details included in the calendar action; your calendar’s sharing settings apply.
+EPS or the disclosed payment provider, if enabled
+Payment-entry data handled by the gateway and transaction references used by Onubot.
+
+4 / 6Onubot · Privacy Policy
+Device speech and platform services
+Audio or read-aloud text may be handled by the speech engine you use, subject to
+device/provider settings.
+7. Content standards: adult content is prohibited
+Onubot does not allow adult-entertainment content, including pornography, erotic material,
+sexually explicit content intended for sexual arousal, or sexual solicitation. Do not upload,
+request, create or share this material through messages, images, videos, documents or AI
+features. Sexual harassment, exploitation, non-consensual intimate content and any sexual
+exploitation or abuse of children are strictly prohibited. Relevant, non-erotic questions about
+sexual or reproductive health and lawfully shared medical information are not adult
+entertainment; share only what is necessary for a legitimate healthcare purpose and respect
+privacy and consent. Report prohibited content to admin@anchorblock.vc. Access may be
+restricted or content handled under the applicable terms and law.
+8. Permissions, background processing and local storage
+Camera permission supports image capture and consultations; microphone permission
+supports voice input and calls. File and photo pickers let you select uploads. Notifications
+support app alerts, which may reveal information on a lock screen. Internet access and
+foreground Data Sync services allow active chat or document work to continue while the app is
+minimized. The app does not include GPS walking tracking or calorie-estimation tracking,
+although IP-based technical information may indicate a general location. Settings, sessions and
+working copies may be cached on the device. Permission controls depend on the operating
+system; refusing a permission may limit the related feature.
+9. International processing
+Cloud and communications providers may process information outside Bangladesh, including in
+the United States and other service locations. The configured Langfuse service uses a United
+States endpoint. A global AI endpoint does not guarantee storage in a particular country.
+Applicable transfer restrictions, contractual safeguards and any requirement to keep a local copy
+must be addressed before a transfer. Agreeing to this Policy does not waive mandatory
+protections for sensitive health information. Contact us for information about applicable
+processing locations and safeguards.
+10. Retention and deletion limits
+Information is retained for the stated service purpose and any applicable clinical, legal, security,
+financial or dispute-related need. A single retention period does not apply to every record.
+Account information may be needed while your account remains active; clinical records may
+require a different lawful period. Audio awaiting transcription, failed jobs, diagnostic logs and
+Langfuse traces require separate retention and cleanup arrangements. Where backups exist,
+
+5 / 6Onubot · Privacy Policy
+deletion may follow their rotation and legal requirements. No unestablished automatic deletion
+deadline is promised. Contact us for information about the retention arrangements that apply to
+your records.
+11. Your choices and privacy rights
+Where applicable law provides these rights, you may request access, a copy, correction or
+deletion of your information, ask for processing to be restricted, object to processing, or
+withdraw consent for consent-based processing. Withdrawal does not undo earlier lawful
+processing and may make a related feature unavailable. You can adjust device permissions and
+notifications and use available profile or chat controls. Clearing a conversation does not
+necessarily remove consultation records, logs, provider traces or the account itself. Important
+AI-assisted clinical information should be reviewed by a clinician rather than relied on as an
+automated decision.
+12. Requesting account or data deletion
+Email admin@anchorblock.vc with the subject "Onubot account/data deletion". Identify the
+account and specify the information you want deleted. Do not send passwords, OTPs, card PINs
+or unnecessary medical attachments. We may verify your identity or authority in a proportionate
+manner before acting. We will explain any lawful retention or limits, including records a clinician
+must independently retain and copies already shared or downloaded. Requests will be handled
+within applicable legal requirements. Signing out or uninstalling the app is not a deletion
+request. If an in-app deletion option is unavailable in your version of Onubot, use the email
+address above to request deletion.
+13. Children and another person’s health information
+Accounts are intended for adults aged 18 or over. An authorized parent, guardian or clinician
+may provide a child’s information for a lawful care purpose, subject to appropriate authority and
+consent. Permission to provide a child’s health information does not create an unrestricted
+independent child account. Do not submit another person’s confidential information without
+permission or another legal basis. Contact us if a child has registered independently or
+information was provided without the required authority. The adult-content prohibition in
+section 7 concerns prohibited material; it does not prohibit lawful adult users or legitimate
+healthcare questions.
+14. Security, advertising and purpose limits
+We use authentication, account permissions and access controls to protect information. Some
+services must process readable content to provide AI, transcription or support. Do not assume
+that the entire service is end-to-end encrypted or that every local cache is encrypted. No system
+is completely secure. Report a suspected exposure to admin@anchorblock.vc; applicable breach-
+assessment and notification duties remain. This Policy does not authorize selling health
+
+6 / 6Onubot · Privacy Policy
+information, behavioral advertising based on that information, or unrelated secondary use
+without the required legal basis and notice. A new purpose cannot be concealed as general
+service improvement.
+15. Updates, questions and complaints
+We will give appropriate notice of material changes and seek new consent where required. For
+support or privacy concerns, contact Anchorblock Technology, House 432, Road 6, Avenue 5,
+DOHS, Dhaka 1215, Bangladesh; email admin@anchorblock.vc or call +8801400655308. This
+does not prevent a complaint to a competent authority or another remedy available under
+applicable law. For medical emergencies, seek appropriate emergency medical care rather than
+waiting for platform support.
+References
+Bangladesh: Personal Data Protection Act 2026 (Act No. 63 of 2026)
+Bangladesh Medical & Dental Council: Telemedicine Guidelines, July 2020
+Google Play: User Data policy
+Google Play: Account deletion requirements
+Google Play: Inappropriate Content policy

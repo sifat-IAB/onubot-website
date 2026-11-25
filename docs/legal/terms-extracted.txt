@@ -1,0 +1,147 @@
+1 / 5Onubot · Terms & Conditions
+O N U B OT
+Terms & Conditions
+Onubot · Anchorblock Technology
+Last updated: 24 November 2026
+House 432, Road 6, Avenue 5, DOHS, Dhaka 1215, Bangladesh
+Support: admin@anchorblock.vc
+Urgent platform support: +8801400655308
+The support phone is not a substitute for emergency medical care.
+1. About these Terms
+Onubot is operated by Anchorblock Technology, House 432, Road 6, Avenue 5, DOHS, Dhaka
+1215, Bangladesh ("Anchorblock", "we", "us"). These Terms govern patient and doctor accounts,
+AI-assisted features, document tools, booking and consultation services made available through
+Onubot. By using the services after these Terms are properly presented, you agree to them. If
+you do not agree, do not use the services. The Privacy Policy explains data handling; accepting
+these Terms is not blanket consent for processing that requires a separate, specific consent.
+2. Accounts, age and authority
+Individual account holders must be at least 18 and have legal capacity to use the service. A
+parent or lawful guardian may use their own account to seek appropriate care for a child,
+subject to applicable consent and clinical requirements. Give accurate account and health
+information, keep access credentials private, and tell us about suspected misuse. Do not
+impersonate another person. If you provide someone else’s information, you must have their
+permission or another lawful authority. Doctor access requires the professional registration and
+verification required for the relevant services.
+3. What Onubot provides
+Onubot provides technology for health information, symptom conversations, medical-document
+extraction and explanation, doctor discovery, appointment management, remote consultations
+and access to records made available through the app. Features may differ by account type,
+availability and app version. The clinician identified for your consultation is responsible for their
+clinical decisions. Anchorblock’s operation of the platform does not remove any legal duties it
+may have. An AI conversation alone does not establish a clinician–patient relationship.
+
+2 / 5Onubot · Terms & Conditions
+4. Medical emergencies and support
+Onubot’s chatbot, messages and support channels are not emergency medical services and are
+not continuously monitored for clinical emergencies. Do not wait for an app response if urgent
+care is needed; contact local emergency services or attend an appropriate emergency facility.
+Onubot’s urgent platform-support number is +8801400655308. This is the operator’s support
+contact, not an ambulance dispatch or a guaranteed medical-response line. We do not promise
+round-the-clock staffing or a particular response time.
+5. Limits of AI, OCR and medicine information
+AI answers, summaries, translations, image descriptions and OCR transcriptions may be
+incomplete or wrong, including medicine names, strengths, schedules and report values. They
+support understanding and professional review; they are not a diagnosis, a new prescription or
+an instruction to start, stop or change treatment. Verify important information against the
+original document and a qualified clinician or pharmacist. Medicine availability, manufacturer
+details and prices may change. A medical image cannot be safely declared normal solely
+because an AI response sounds reassuring.
+6. Mental-health and wellbeing features
+AI wellbeing conversations and optional creative features, including a requested caricature, are
+not psychotherapy, psychiatric assessment or a promise that symptoms will improve. Use them
+only as supplementary support. You may decline an optional photo or creative feature. Seek
+qualified professional care when appropriate. The emergency limitations in section 4 apply
+equally to mental-health situations.
+7. Consultations, consent and recording
+Remote consultations can have clinical and technical limitations; a doctor may require an in-
+person examination or decline unsuitable remote care. Consultations may involve server-side
+audio recording and AI transcription for consultation notes, draft prescriptions and summaries,
+as explained in the Privacy Policy. Appropriate advance notice and any legally required specific
+consent are necessary; camera or microphone permission alone is not consent to recording. Do
+not record or disclose another participant’s consultation without lawful authority. AI-generated
+clinical drafts must be reviewed by the responsible clinician before issue.
+8. Booking and schedule changes
+A displayed doctor, time or chat proposal does not guarantee a completed booking. Rely on the
+appointment or schedule confirmation stored in the app and check the date, time, consultation
+mode and doctor. Availability can change. Complete any requested confirmation before
+assuming a chat-assisted action has taken effect. Account permissions determine which records
+and scheduling actions are available. Do not use chat instructions to bypass another patient’s
+booking or an authorization restriction.
+
+3 / 5Onubot · Terms & Conditions
+9. Fees, payments and doctor payouts
+If a paid service is enabled, the applicable price, currency, material charges and payment
+conditions must be shown before you confirm it. A free or demonstration booking is not proof
+that money was collected. Payment providers may apply their own terms. Do not send card
+security codes, wallet PINs or passwords in chat. A displayed doctor earnings balance is subject
+to the applicable payout arrangements, verification and transaction adjustments. Changes to
+prices apply prospectively and must not remove rights attached to an existing paid booking.
+10. Cancellation, rescheduling and refunds
+The cancellation and rescheduling rules displayed for the relevant booking apply, subject to
+mandatory law. Timing, a pending cancellation request, consultation status and the reason for a
+change can affect available actions. Any late-cancellation fee, no-show consequence, refund
+eligibility, deduction or processing period must be disclosed before a paid booking is confirmed;
+none is created merely by these Terms. A chat request is not itself a refund confirmation.
+Contact support if a doctor cannot attend, a payment appears wrong or a displayed rule is
+unclear. Mandatory consumer remedies remain available.
+11. Patient responsibilities
+Provide accurate symptoms, relevant medicines, allergies and reports; distinguish information
+about yourself from information about another person. Upload only material you may lawfully
+share. Review OCR results before saving or using them and distinguish uploaded documents
+from clinician-issued records. Follow the treating clinician’s instructions rather than an unverified
+AI interpretation. Protect downloaded records and consider who can view your screen, email,
+notifications and shared device.
+12. Doctor responsibilities
+Doctors must maintain valid registration, provide accurate professional details, practise within
+their competence and comply with applicable professional, prescribing, confidentiality and
+telemedicine requirements. Verification or a profile badge is not a guarantee of a clinical
+outcome. Access patient information only for an authorized purpose. Check AI drafts, drug
+identity, strength, dose, frequency, timing, duration, tests and follow-up instructions before
+approving or issuing a prescription. Do not present an unreviewed generated draft as a finalized
+clinical decision.
+13. Privacy and communications
+The Privacy Policy describes processing of account, health, consultation and technical
+information, including cloud AI providers and observability services. We may send account-
+security, welcome, appointment and service communications to the contact details you provide.
+A welcome email does not mean a doctor’s credentials have been approved. Marketing
+
+4 / 5Onubot · Terms & Conditions
+communications, if introduced, require an appropriate legal basis and any required opt-out or
+consent. You can control device notifications, but disabling them may mean you miss important
+updates.
+14. Acceptable use and platform security
+Do not use Onubot for unlawful activity, harassment, fraud, impersonation, unauthorized
+medical practice, malicious uploads or unauthorized disclosure of health information. Do not
+bypass authentication, scrape private records, overload the service or interfere with another
+person’s care. Report security concerns to admin@anchorblock.vc without disclosing other users’
+records publicly. We may restrict access where reasonably necessary to protect users, comply
+with law or investigate misuse, with notice and a review route where appropriate.
+15. Content and intellectual property
+You retain the rights you lawfully hold in material you provide. You authorize the limited hosting,
+processing, transmission and display needed to provide the requested service, including the AI
+processing described in the Privacy Policy. This is not permission to sell your health information
+or reuse it for unrelated advertising. Onubot’s software, branding and other protected materials
+remain subject to their respective owners’ rights. You may use downloaded records lawfully for
+your care and professional obligations; third-party content remains subject to its own rights.
+16. Availability, account closure and records
+We do not guarantee uninterrupted access, a particular clinician’s availability or the absence of
+technical errors. Maintenance, connectivity and third-party failures can interrupt the service. You
+may stop using Onubot and request account closure and data deletion through
+admin@anchorblock.vc, subject to identity verification and lawful retention described in the
+Privacy Policy. Signing out, uninstalling or clearing chat is not the same as deleting your account.
+Closure does not automatically erase records a clinician must independently retain or copies
+already shared with others.
+17. Liability and rights that cannot be excluded
+To the extent permitted by law, we are not responsible for indirect losses caused by matters
+outside our reasonable control or reliance on unverified AI information. This clause does not
+exclude any liability or remedy that cannot lawfully be excluded, including applicable
+responsibility for fraud, wrongful acts, personal injury, professional duties, consumer rights or
+personal-data violations. These Terms do not require you to waive mandatory legal protections,
+and they do not relieve a clinician of responsibility for their own professional conduct.
+References
+Bangladesh: Personal Data Protection Act 2026 (Act No. 63 of 2026)
+Bangladesh Medical & Dental Council: Telemedicine Guidelines, July 2020
+
+5 / 5Onubot · Terms & Conditions
+Google Play: User Data policy
+Google Play: Account deletion requirements

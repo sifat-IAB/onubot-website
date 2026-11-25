@@ -1,0 +1,12 @@
+dist/
+node_modules/
+.preview/
+*.log
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.DS_Store
+Thumbs.db

@@ -1,0 +1,516 @@
+﻿/* A quiet media system: consistent spacing, original aspect ratios, light framing. */
+:root {
+  --media-gap: clamp(40px, 5vw, 72px);
+  --media-gutter: 32px;
+  --media-section-space: clamp(72px, 8vw, 112px);
+  --media-ink: #243b53;
+  --media-muted: #66788a;
+}
+
+.hero-stage { position: relative; isolation: isolate; }
+.hero-stage > .hero-background {
+  inset: -120px 0 -40px;
+  height: auto;
+  background: linear-gradient(180deg, #214879 0%, #2a5b9d 84%, #f8fafc 100%);
+}
+.hero-stage > .hero-background::after { opacity: .25; }
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, .86fr) minmax(0, 1.14fr);
+  align-items: center;
+  gap: var(--media-gap);
+  min-height: 640px;
+  padding-block: 80px 96px;
+  text-align: left;
+}
+.hero-copy { min-width: 0; }
+.hero-copy h1 {
+  margin: 24px 0 22px;
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -2px;
+  text-wrap: balance;
+}
+.hero-copy > p { max-width: 420px; font-size: 16px; line-height: 1.85; color: #e2ecf7; }
+.hero-copy .desktop-break { display: none; }
+.hero-copy > .button { margin-top: 28px; min-width: 190px; box-shadow: 0 4px 12px #132e4d15; }
+.hero-copy .hero-footnote { justify-content: flex-start; flex-wrap: wrap; gap: 10px 18px; margin: 20px 0 0; font-size: 11px; }
+.hero-visual {
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-align: left;
+  border: 1px solid #ffffff30;
+  border-radius: 16px;
+  background: #072f29;
+  box-shadow: 0 12px 32px -20px #102d4f55;
+}
+.hero-image-link, .hero-visual picture, .hero-visual img { display: block; }
+.hero-image-link { aspect-ratio: 1377 / 775; }
+.hero-visual picture { width: 100%; height: 100%; }
+.hero-visual img { width: 100%; height: 100%; object-fit: contain; }
+.hero-visual-caption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  min-height: 64px;
+  padding: 12px 22px;
+  color: var(--media-muted);
+  background: #f8fafc;
+  font-size: 12px;
+}
+.hero-visual-caption a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 40px;
+  color: #345b7e;
+  font-size: 12px;
+  font-weight: 600;
+  transition: color .2s ease;
+}
+.hero-visual-caption .icon { width: 16px; height: 16px; }
+.hero-visual-caption a:hover { color: var(--blue); }
+
+.patient-story { padding: var(--media-section-space) 0 0; }
+#patient-story > .story-layout {
+  display: block;
+  width: min(1216px, calc(100% - 2 * var(--media-gutter)));
+  max-width: none;
+  margin: 0 auto 48px;
+}
+#patient-story .story-copy,
+.doctor-media-section > .doctor-section-copy {
+  width: min(720px, calc(100% - 2 * var(--media-gutter)));
+  max-width: 720px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+#patient-story .story-copy { width: 100%; margin-bottom: 0; }
+.story-copy .eyebrow, .doctor-section-copy > .eyebrow {
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  color: #61788b;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.8px;
+}
+.story-copy h2, .doctor-media-section h2 {
+  margin: 18px 0;
+  font-size: clamp(32px, 3.1vw, 44px);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -1.5px;
+  color: var(--media-ink);
+  text-wrap: balance;
+}
+#patient-story .story-copy > p,
+.doctor-media-section > .doctor-section-copy > p {
+  max-width: 520px;
+  margin-inline: auto;
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--media-muted);
+}
+.story-text-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 14px;
+  padding-block: 5px;
+  color: #345b7e;
+  border-bottom: 1px solid #cbd7e3;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color .2s, border-color .2s;
+}
+.story-text-link:hover { color: var(--blue); border-color: var(--blue); }
+.doctor-media-section { display: block; width: 100%; max-width: none; margin: 0; padding: 0 0 var(--media-section-space); }
+
+/* Both films span the page. The small motion allowance never crops the artwork. */
+.story-film, .parallax-film {
+  display: block;
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  background: var(--page);
+  box-shadow: none;
+}
+.parallax-viewport {
+  --parallax-travel: clamp(12px, 1.8vw, 26px);
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding-block: var(--parallax-travel);
+  background: #123b33;
+}
+#features .parallax-viewport { background: #f4f8f7; }
+.story-video-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  transform: translate3d(0, var(--parallax-y, 0px), 0);
+  background: inherit;
+}
+.parallax-active > .story-video-frame { will-change: transform; }
+.story-video-frame video { display: block; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.parallax-film > figcaption {
+  width: min(1216px, calc(100% - 2 * var(--media-gutter)));
+  min-height: 72px;
+  margin: 0 auto;
+  padding: 22px 0;
+  border-bottom: 1px solid #e7edf1;
+}
+.film-caption { display: flex; width: 100%; align-items: center; justify-content: space-between; gap: 20px; }
+.film-caption strong { color: #4b6174; font-size: 14px; font-weight: 500; letter-spacing: 0; line-height: 1.6; }
+.film-caption > span { color: #748392; font-size: 12px; white-space: nowrap; }
+
+.doctor-media-section > .doctor-features {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(1216px, calc(100% - 2 * var(--media-gutter)));
+  max-width: none;
+  margin: 48px auto 0;
+  gap: 0;
+}
+.doctor-media-section .doctor-features article { padding: 10px 28px; border: 0; border-radius: 0; background: none; box-shadow: none; }
+.doctor-media-section .doctor-features article + article { border-inline-start: 1px solid #e3eaf0; }
+.doctor-media-section .doctor-features article:first-child { padding-inline-start: 0; }
+.doctor-media-section .doctor-features h3 { font-size: 14px; font-weight: 600; margin: 16px 0 7px; }
+.doctor-media-section .doctor-features p { font-size: 12px; line-height: 1.7; color: var(--media-muted); }
+.doctor-media-section .small-icon { border-radius: 10px; }
+.reveal-ready { opacity: 0; transform: translateY(10px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1); }
+.reveal-ready.is-revealed { opacity: 1; transform: translateY(0); }
+.capability-card.reveal-ready:nth-child(2), .tool-card.reveal-ready:nth-child(2) { transition-delay: 35ms; }
+.capability-card.reveal-ready:nth-child(3), .tool-card.reveal-ready:nth-child(3) { transition-delay: 70ms; }
+
+@media (max-width: 1100px) and (min-width: 961px) {
+  .hero { gap: 36px; }
+  .hero-visual-caption { padding-inline: 16px; }
+  .hero-visual-caption > span { max-width: 130px; }
+  .hero-visual-caption a { font-size: 11px; gap: 6px; }
+}
+@media (max-width: 960px) {
+  .hero { width: min(760px, calc(100% - 2 * var(--media-gutter))); grid-template-columns: minmax(0, 1fr); gap: 40px; min-height: 0; padding-block: 56px 24px; text-align: center; }
+  .hero-copy { width: 100%; max-width: 620px; margin-inline: auto; }
+  .hero-copy h1 { font-size: clamp(42px, 6vw, 56px); }
+  .hero-copy > p { max-width: 470px; margin-inline: auto; }
+  .hero-copy .hero-footnote { justify-content: center; }
+  .doctor-media-section .doctor-features article { padding-inline: 20px; }
+  .doctor-media-section .doctor-features h3 { font-size: 13px; }
+}
+@media (max-width: 800px) { :root { --media-gutter: 20px; } }
+@media (max-width: 600px) {
+  :root { --media-gutter: 18px; --media-section-space: 64px; }
+  .hero-stage > .hero-background { bottom: -32px; }
+  .hero { width: calc(100% - 2 * var(--media-gutter)); padding-block: 42px 16px; gap: 32px; }
+  .hero-copy h1 { margin-block: 20px 18px; font-size: clamp(35px, 9vw, 48px); letter-spacing: -1.7px; }
+  .hero-copy > p { max-width: 340px; font-size: 15px; line-height: 1.8; }
+  .hero-copy > .button { margin-top: 24px; min-height: 46px; font-size: 13px; }
+  .hero-copy .hero-footnote { gap: 10px 14px; margin-top: 18px; font-size: 10px; }
+  .hero-visual { border-radius: 12px; }
+  .hero-visual-caption { justify-content: center; min-height: 58px; padding: 8px 16px; }
+  .hero-visual-caption > span { display: none; }
+  .hero-visual-caption a { min-height: 42px; font-size: 12px; }
+  #patient-story > .story-layout, .doctor-media-section > .doctor-section-copy { margin-bottom: 32px; }
+  .story-copy .eyebrow, .doctor-section-copy > .eyebrow { font-size: 10px; }
+  .story-copy h2, .doctor-media-section h2 { margin-block: 16px; font-size: 33px; letter-spacing: -1.2px; }
+  #patient-story .story-copy > p, .doctor-media-section > .doctor-section-copy > p { max-width: 350px; font-size: 15px; line-height: 1.8; }
+  .story-text-link { margin-top: 10px; font-size: 12px; }
+  .parallax-viewport { --parallax-travel: 10px; }
+  .parallax-film > figcaption { min-height: 64px; padding-block: 18px; }
+  .film-caption { gap: 12px; }
+  .film-caption strong { font-size: 13px; }
+  .film-caption > span { font-size: 11px; }
+  .doctor-media-section > .doctor-features { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 32px; }
+  .doctor-media-section .doctor-features article { padding: 20px 16px; }
+  .doctor-media-section .doctor-features article:first-child { padding-inline-start: 0; }
+  .doctor-media-section .doctor-features article:nth-child(odd) { border-inline-start: 0; padding-inline-start: 0; }
+  .doctor-media-section .doctor-features article:nth-child(n+3) { border-top: 1px solid #e3eaf0; }
+  .doctor-media-section .doctor-features h3 { font-size: 13px; line-height: 1.5; }
+  .doctor-media-section .doctor-features p { font-size: 11px; }
+}
+@media (max-width: 360px) {
+  :root { --media-gutter: 14px; }
+  .hero-copy h1 { font-size: 34px; letter-spacing: -1.6px; }
+  .story-copy h2, .doctor-media-section h2 { font-size: 30px; }
+  .doctor-media-section .doctor-features article { padding-inline: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal-ready { opacity: 1; transform: none; transition: none; }
+  .parallax-viewport { padding-block: 0; }
+  .story-video-frame { transform: none; will-change: auto; }
+}
+
+/* The original Onubot mark connects friendly, illustrative care avatars. */
+.peace-panel.care-panel { grid-template-columns: minmax(280px,.9fr) minmax(0,1.1fr); gap: clamp(24px,4vw,52px); padding: 38px 48px 38px 30px; }
+.care-network { width: 100%; max-width: 350px; margin-inline: auto; aspect-ratio: 360 / 340; }
+.care-network-art { display: block; width: 100%; height: auto; overflow: visible; }
+.care-orbit-outer, .care-orbit-inner { fill: none; stroke: #cfdef0; stroke-width: 1; }
+.care-orbit-outer { opacity: .55; }
+.care-orbit-inner { opacity: .45; }
+.care-link-base { fill: none; stroke: #c0d7dc; stroke-width: 1.6; }
+.care-flows { fill: none; stroke: #72b9ab; stroke-width: 3; stroke-linecap: round; }
+.care-flow { stroke-dasharray: 6 94; stroke-dashoffset: 100; opacity: 0; animation: care-connect 4.8s ease-in-out infinite paused; }
+.care-flow-two { animation-delay: .65s; }
+.care-flow-three { animation-delay: 1.5s; }
+.care-flow-four { animation-delay: 2.15s; }
+.care-hub-halo { fill: #d5e9e933; stroke: #bcded5; stroke-width: 1; transform-origin: 180px 168px; animation: care-welcome 4.8s ease-in-out infinite paused; }
+.care-hub-card { fill: #fff; stroke: #e0e8ef; stroke-width: 1; }
+.care-hub-name { font: 600 11px var(--font); fill: #3e6580; letter-spacing: -.25px; }
+.care-person { animation: care-float 7s ease-in-out infinite paused; }
+.care-person-two { animation-delay: -.8s; }
+.care-person-three { animation-delay: -2s; }
+.care-person-four { animation-delay: -3.2s; }
+.care-person-label { font: 500 10px var(--font); fill: #698397; }
+.care-heart { animation: care-heartbeat 4.8s ease-in-out infinite paused; transform-origin: 180px 70px; }
+.care-together { font: 400 9px var(--font); fill: #8ba0af; letter-spacing: .2px; }
+.network-is-active .care-flow, .network-is-active .care-hub-halo, .network-is-active .care-person, .network-is-active .care-heart { animation-play-state: running; }
+@keyframes care-connect { 0% { stroke-dashoffset: 100; opacity: 0; } 12% { opacity: .9; } 70% { opacity: .9; } 90%,100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes care-welcome { 0%,100% { transform: scale(1); opacity: .45; } 45% { transform: scale(1.055); opacity: .85; } }
+@keyframes care-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes care-heartbeat { 0%,40%,100% { transform: scale(1); } 50% { transform: scale(1.08); } 60% { transform: scale(1); } }
+@media (max-width: 1000px) { .peace-panel.care-panel { padding: 32px; gap: 28px; } }
+@media (max-width: 800px) {
+  .peace-panel.care-panel { grid-template-columns: minmax(0,1fr); padding: 28px 28px 40px; gap: 25px; text-align: center; }
+  .care-network { max-width: 330px; }
+  .care-panel .peace-copy > p { margin-inline: auto; max-width: 430px; }
+  .care-panel .trust-points { justify-content: center; }
+}
+@media (max-width: 480px) { .peace-panel.care-panel { padding: 24px 16px 32px; gap: 22px; } .care-network { max-width: 310px; } }
+@media (prefers-reduced-motion: reduce) {
+  .care-network .care-flow, .care-network .care-hub-halo, .care-network .care-person, .care-network .care-heart { animation: none; }
+  .care-network .care-flow { opacity: 0; }
+}
+
+/* A small app card gives every preview reply a clear next step. */
+.chat-header .chat-logo { width: 44px; height: 44px; border: 1px solid #e2eaf0; background: #fff; border-radius: 13px; }
+.chat-logo img { display: block; width: 26px; height: 35px; object-fit: contain; }
+.assistant-message > .message-avatar { background: #fff; border: 1px solid #e6edf3; }
+.message-avatar img { display: block; width: 17px; height: 23px; object-fit: contain; }
+.chat-app-card {
+  display: grid;
+  grid-template-columns: 56px minmax(0,1fr);
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 17px;
+  padding: 16px;
+  border: 1px solid #d7e9e3;
+  border-radius: 13px;
+  background: #f4fbf8;
+  text-align: left;
+  transition: background .2s, border-color .2s, box-shadow .2s;
+}
+.chat-app-card:hover { border-color: #b5dace; background: #eef9f3; box-shadow: 0 4px 12px #235d4d08; }
+.chat-app-card-logo { display: grid; place-items: center; width: 56px; height: 64px; background: #fff; border: 1px solid #e3eee9; border-radius: 12px; }
+.chat-app-card-logo img { display: block; width: 34px; height: 45px; object-fit: contain; }
+.chat-app-card-copy { min-width: 0; }
+.chat-app-card-copy > strong { display: block; color: #2a4b53; font-size: 16px; line-height: 1.4; font-weight: 650; }
+.chat-app-card-copy > span { display: block; color: #6e8586; font-size: 12px; line-height: 1.7; margin-top: 3px; }
+.chat-app-card-copy > .chat-app-card-cta { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; color: #247e70; font-size: 12px; font-weight: 600; margin-top: 8px; }
+.chat-app-card-cta .icon { width: 15px; height: 15px; }
+.chat-app-card-cta > span { font-size: 10px; color: #7c9290; font-weight: 400; }
+@media (max-width: 600px) {
+  .chat-header .chat-logo { width: 36px; height: 36px; border-radius: 10px; }
+  .chat-logo img { width: 21px; height: 28px; }
+  .message-avatar img { width: 14px; height: 19px; }
+  .chat-app-card { grid-template-columns: 40px minmax(0,1fr); padding: 12px; gap: 11px; border-radius: 10px; margin-top: 14px; }
+  .chat-app-card-logo { width: 40px; height: 50px; border-radius: 9px; }
+  .chat-app-card-logo img { width: 25px; height: 34px; }
+  .chat-app-card-copy > strong { font-size: 14px; }
+  .chat-app-card-copy > span { font-size: 11px; }
+  .chat-app-card-copy > .chat-app-card-cta { font-size: 11px; gap: 5px; }
+  .chat-app-card-cta > span { font-size: 9px; }
+}
+
+/* The download phone displays the complete, unchanged Google Play screenshot. */
+#download .download-panel { min-height: 540px; }
+#download .download-art { align-items: center; }
+#download .download-store-preview {
+  display: block;
+  position: relative;
+  width: clamp(190px,18vw,235px);
+  height: auto;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  overflow: visible;
+  background: transparent;
+  transform: rotate(5deg);
+  box-shadow: none;
+}
+.download-store-preview img { display: block; width: 100%; height: auto; object-fit: contain; border-radius: 0; filter: drop-shadow(0 14px 24px #15368a30); }
+.download-store-preview:focus-visible { outline: 3px solid #bfdbfe; outline-offset: 7px; }
+@media (max-width: 800px) {
+  #download .download-panel { min-height: 500px; }
+  #download .download-store-preview { width: 190px; transform: rotate(6deg); }
+}
+@media (max-width: 600px) {
+  #download .download-panel { display: grid; grid-template-columns: minmax(0,1fr); gap: 24px; min-height: 0; padding: 38px 24px 26px; }
+  #download .download-art { position: relative; inset: auto; width: 100%; height: auto; min-height: 460px; display: grid; place-items: center; }
+  #download .download-store-preview { width: 200px; transform: rotate(5deg); }
+  #download .download-ring { top: 50%; }
+}
+@media (max-width: 360px) {
+  #download .download-panel { padding-inline: 20px; }
+  #download .download-store-preview { width: 190px; }
+  #download .download-art { min-height: 440px; }
+}
+
+/* Complete 3D phones stand freely on a white section background. */
+.capability-screens { align-items: stretch; gap: 22px; }
+.capability-image-card { --device-angle: -3deg; --device-delay: 0ms; --screen-accent: #3574ba; display: flex; flex-direction: column; }
+.capability-profile { --device-angle: 2deg; --device-delay: 100ms; --screen-accent: #188579; }
+.capability-doctors { --device-angle: -2deg; --device-delay: 200ms; --screen-accent: #7663ac; }
+.capability-image-card .capability-image-art {
+  position: relative;
+  display: grid;
+  place-items: center;
+  isolation: isolate;
+  height: auto;
+  padding: 68px 24px 26px;
+  overflow: hidden;
+  background: transparent;
+  border-bottom: 0;
+}
+.capability-image-card .art-tag { left: 20px; top: 20px; font-size: 8px; letter-spacing: .6px; color: #4b6079; background: #ffffffd9; border-color: #fff; }
+.capability-phone-presentation { position: relative; display: grid; justify-items: center; gap: 0; width: min(100%, 228px); text-decoration: none; -webkit-tap-highlight-color: transparent; }
+.capability-device {
+  position: relative;
+  display: block;
+  width: 100%;
+  border: 7px solid #fff;
+  border-radius: 34px;
+  outline: 1px solid #d1dce7;
+  background: #fff;
+  box-shadow: 0 22px 42px -18px #263d5c59, 0 3px 9px #263d5c0a;
+  transform: rotate(var(--device-angle));
+  transition: transform .65s cubic-bezier(.2,.7,.2,1), box-shadow .65s ease;
+}
+.capability-device::before { content: ""; position: absolute; left: -9px; top: 19%; width: 2px; height: 18%; border-radius: 3px; background: #b9c9d8; box-shadow: 0 -18px 0 -0.3px #b9c9d8; }
+.capability-device::after { content: ""; position: absolute; inset: -5px; border: 1px solid #e9eef4; border-radius: 31px; pointer-events: none; }
+.capability-device-screen { display: block; width: 100%; aspect-ratio: 738 / 1600; border: 1px solid #e7ebef; border-radius: 26px; overflow: hidden; background: #fff; }
+.capability-device-screen img { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
+.capability-image-card .capability-copy { flex: 1; padding: 27px 26px 30px; }
+.capability-image-card .card-number { color: #596f8d; font-size: 9px; letter-spacing: .08em; }
+.capability-image-card .capability-copy h3 { font-size: clamp(19px, 1.65vw, 23px); line-height: 1.35; letter-spacing: -.8px; margin-block: 12px; }
+.capability-image-card .capability-copy p { color: #62738a; font-size: 13px; line-height: 1.9; }
+.capability-image-card.is-revealed .capability-device { animation: capability-phone-arrive .95s cubic-bezier(.2,.7,.2,1) var(--device-delay) backwards; }
+@keyframes capability-phone-arrive {
+  from { opacity: 0; transform: translate3d(0, 34px, -55px) rotateX(20deg) rotateY(var(--device-y, -15deg)) rotateZ(calc(var(--device-angle) - 4deg)); }
+  to { opacity: 1; transform: var(--device-transform); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .capability-image-card:hover { --phone-lift: -6px; }
+  .capability-image-card:hover .capability-device { box-shadow: 0 28px 46px -18px #263d5c59; }
+}
+@media (min-width: 601px) and (max-width: 960px) {
+  .capability-screens { gap: 14px; }
+  .capability-image-card .capability-image-art { padding: 62px 20px 24px; }
+  .capability-image-card .art-tag { left: 12px; top: 19px; font-size: 6px; gap: 5px; padding-inline: 7px; }
+  .capability-device { border-width: 5px; border-radius: 27px; }
+  .capability-device-screen { border-radius: 21px; }
+  .capability-device::after { inset: -4px; border-radius: 25px; }
+  .capability-device::before { left: -7px; }
+  .capability-image-card .capability-copy { padding: 23px 18px 26px; }
+  .capability-image-card .capability-copy h3 { font-size: 19px; }
+  .capability-image-card .capability-copy p { font-size: 12px; }
+}
+@media (max-width: 600px) {
+  .capability-screens { gap: 28px; max-width: 430px; }
+  .capability-image-card { --device-angle: -2deg; --device-delay: 0ms; }
+  .capability-profile { --device-angle: 2deg; }
+  .capability-image-card .capability-image-art { padding: 65px 36px 26px; }
+  .capability-phone-presentation { width: min(100%, 230px); }
+  .capability-image-card .capability-copy { padding: 26px; }
+  .capability-image-card .capability-copy h3 { font-size: 23px; }
+  .capability-image-card .art-tag { font-size: 7px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capability-image-card .capability-device { animation: none; transition: none; }
+  .capability-image-card .capability-device, .capability-image-card:hover .capability-device { transform: none; }
+}
+
+/* The real screenshot stays on the front plane of each dimensional phone. */
+.capability-image-card {
+  --device-x: 8deg;
+  --device-y: -16deg;
+  --device-angle: -5deg;
+  --stage-color: #a6c7ef;
+  --device-transform: translate3d(0, var(--phone-lift, 0px), 22px) rotateX(calc(var(--device-x) + var(--pointer-tilt-x, 0deg))) rotateY(calc(var(--device-y) + var(--pointer-tilt-y, 0deg))) rotateZ(var(--device-angle));
+}
+.capability-profile { --device-x: 7deg; --device-y: 13deg; --device-angle: 4deg; --stage-color: #99d7c5; }
+.capability-doctors { --device-x: 9deg; --device-y: -13deg; --device-angle: -4deg; --stage-color: #c0afe7; }
+.capability-image-card .capability-image-art { padding-top: 78px; }
+.capability-depth-stage { position: relative; display: block; width: 100%; padding-bottom: 0; perspective: 1100px; perspective-origin: 50% 42%; transform-style: preserve-3d; }
+.capability-image-card .capability-device {
+  z-index: 2;
+  transform: var(--device-transform);
+  transform-style: preserve-3d;
+  box-shadow: 1px 1px 0 #d3dfe8, 3px 2px 0 #c5d3df, 5px 4px 0 #b9cad7, 7px 6px 0 #a8bdce, 18px 30px 42px -20px #233e6659;
+  transition: transform .7s cubic-bezier(.2,.7,.2,1), box-shadow .7s ease;
+}
+.capability-device::after { background: linear-gradient(135deg, #ffffff55, transparent 38%, #dce6ef44); transform: translateZ(-1px); }
+.capability-depth-token { position: absolute; z-index: 3; right: -20px; top: -24px; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #fff; border-radius: 13px; color: var(--screen-accent); background: linear-gradient(135deg, #fffffffa, #ffffffb0); box-shadow: 3px 4px 0 -1px var(--stage-color), 9px 15px 22px -13px #24436d59; transform: translateZ(52px) rotateX(10deg) rotateY(-18deg) rotateZ(12deg); transition: transform .7s cubic-bezier(.2,.7,.2,1), translate .7s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
+.capability-depth-token .icon { width: 21px; height: 21px; }
+.capability-profile .capability-depth-token { right: auto; left: -20px; transform: translateZ(52px) rotateX(8deg) rotateY(18deg) rotateZ(-12deg); }
+.capability-image-card.is-revealed .capability-depth-token { animation: capability-token-arrive .85s cubic-bezier(.2,.7,.2,1) calc(var(--device-delay) + 180ms) backwards; }
+@keyframes capability-token-arrive { from { opacity: 0; translate: 0 20px; } to { opacity: 1; translate: 0 0; } }
+@media (hover: hover) and (pointer: fine) {
+  .capability-image-card:hover .capability-device { box-shadow: 1px 1px 0 #d3dfe8, 3px 2px 0 #c5d3df, 5px 4px 0 #b9cad7, 7px 6px 0 #a8bdce, 18px 38px 46px -20px #233e6666; }
+  .capability-image-card:hover .capability-depth-token { translate: 0 -5px; }
+  .capability-image-card.depth-is-active .capability-device { transition-duration: .2s; will-change: transform; }
+}
+@media (max-width: 960px) and (min-width: 601px) {
+  .capability-image-card { --device-y: -11deg; --device-angle: -3deg; }
+  .capability-profile { --device-y: 10deg; --device-angle: 3deg; }
+  .capability-depth-token { width: 33px; height: 33px; right: -9px; top: -20px; border-radius: 10px; }
+  .capability-profile .capability-depth-token { left: -9px; }
+  .capability-depth-token .icon { width: 17px; height: 17px; }
+}
+@media (max-width: 600px) {
+  .capability-image-card { --device-x: 6deg; --device-y: -13deg; --device-angle: -3deg; }
+  .capability-profile { --device-y: 12deg; --device-angle: 3deg; }
+  .capability-depth-token { right: -12px; width: 38px; height: 38px; }
+  .capability-profile .capability-depth-token { left: -12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .capability-image-card .capability-device, .capability-image-card:hover .capability-device { transform: none; transition: none; will-change: auto; }
+  .capability-image-card .capability-depth-token { animation: none; transition: none; translate: none; }
+}
+
+/* White, open presentation without individual background cards or view links. */
+#capabilities { background: #fff; box-shadow: 0 0 0 100vmax #fff; clip-path: inset(0 -100vmax); }
+.capability-image-card .capability-image-art { overflow: visible; }
+.capability-image-card .art-tag { background: transparent; border: 0; padding: 0; }
+.capability-image-card .capability-copy { padding-top: 16px; }
+
+/* Patient and doctor conversations share the open, dimensional phone styling. */
+.assistant-showcase { background: #fff; padding: clamp(64px, 7vw, 100px) 0; }
+.assistant-showcase .section-heading > p { max-width: 570px; margin-inline: auto; }
+.assistant-screen-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(36px, 7vw, 100px); max-width: 940px; margin-inline: auto; align-items: start; }
+.assistant-screen { min-width: 0; }
+.assistant-screen .capability-phone-presentation { width: min(100%, 244px); }
+.assistant-screen .capability-image-art { padding-top: 72px; }
+.assistant-screen .art-tag { top: 22px; left: 50%; transform: translateX(-50%); white-space: nowrap; }
+.assistant-screen .capability-copy { width: 100%; max-width: 370px; margin-inline: auto; padding-inline: 16px; text-align: center; }
+.assistant-screen .capability-copy h3 { font-size: clamp(20px, 1.9vw, 25px); }
+@media (max-width: 700px) {
+  .assistant-screen-grid { grid-template-columns: minmax(0, 1fr); gap: 44px; max-width: 430px; }
+  .assistant-screen .capability-phone-presentation { width: min(100%, 238px); }
+  .assistant-screen .capability-copy { padding-inline: 20px; }
+  .assistant-screen .capability-copy h3 { font-size: 23px; }
+}

@@ -1,0 +1,332 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="description" content="Meet Onubot, your bilingual health companion. Explore prescription clarity, medicine reminders, and doctor consultations, all in one Android app.">
+  <title>Onubot — A little clarity. A healthier everyday.</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;650;700;750;800&family=Noto+Sans+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="media.css">
+  <link rel="stylesheet" href="ocr.css">
+  <link rel="stylesheet" href="journey.css">
+  <link rel="stylesheet" href="install.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <a href="#main" class="skip-link">Skip to content</a>
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/><path d="m20 2 .6 1.4L22 4l-1.4.6L20 6l-.6-1.4L18 4l1.4-.6L20 2Z"/></symbol>
+    <symbol id="i-play-video" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7V5Z"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14m8-14v14"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><path d="m11 5-5 4H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m13-5h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3m8 0h3a2 2 0 0 0 2-2v-3M3 12h18M8 7h8M8 17h5"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 4 5 8 8 9 3-1 8-5 8-9V6l-8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 5h2m4 0h2"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><rect x="3" y="5" width="12" height="14" rx="3"/><path d="m15 10 6-4v12l-6-4"/></symbol>
+    <symbol id="i-pill" viewBox="0 0 24 24"><path d="M9 4a6.4 6.4 0 0 1 9 9l-5 5a6.4 6.4 0 0 1-9-9l5-5Zm-2 3 10 10"/></symbol>
+    <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l-1 1v-9.5a8.5 8.5 0 0 1 17 0Z"/><path d="M8 10h8m-8 4h5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 5v2"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M20 8V5a2 2 0 0 0-2-2H6a3 3 0 0 0 0 6h14v12H6a3 3 0 0 1-3-3V6m17 7h-5v4h5"/></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="m21 3-7 18-4-7-7-4 18-7ZM10 14 21 3"/></symbol>
+    <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M4 3v18l11-9L4 3Z" fill="#30d29b" stroke="none"/><path d="m4 3 13 7-2 2L4 3Z" fill="#4cb5f5" stroke="none"/><path d="m4 21 13-7-2-2L4 21Z" fill="#f86379" stroke="none"/><path d="m17 10 3 2-3 2-2-2 2-2Z" fill="#ffd264" stroke="none"/></symbol>
+  </svg>
+
+    <header class="site-header container">
+      <a class="brand" href="#" aria-label="Onubot home"><span class="brand-mark" aria-hidden="true"><img src="assets/onubot-mark.png" width="24" height="32" alt="" decoding="async"></span><span>Onubot<small>AI CLINICAL CARE</small></span></a>
+      <nav class="desktop-nav" aria-label="Main navigation"><a href="#capabilities">Capabilities</a><a href="#tools">Tools</a><a href="#features">Features</a><a href="#demo">Live AI Demo</a><a href="#faq">FAQ</a></nav>
+      <a class="button nav-download store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-play"/></svg>Google Play</a>
+      <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav"><span></span><span></span></button>
+      <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation" hidden><a href="#capabilities">Capabilities</a><a href="#tools">Tools</a><a href="#features">Features</a><a href="#demo">Live AI Demo</a><a href="#faq">FAQ</a><a href="#download">Get the app</a></nav>
+    </header>
+
+    <main id="main">
+      <section class="hero-stage" aria-labelledby="hero-title">
+        <div class="hero-background" aria-hidden="true"></div>
+        <div class="hero container">
+        <div class="hero-copy">
+        <span class="eyebrow eyebrow-light"><svg class="icon"><use href="#i-spark"/></svg>AI CLINICAL HEALTH COMPANION</span>
+        <h1 id="hero-title">A little clarity.<br>A healthier everyday.</h1>
+        <p>Your prescriptions, your doctors, your peace of mind.<br class="desktop-break"> A smarter health companion, made for Bangladesh.</p>
+        <a class="button button-white store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-play"/></svg>Get Started Free</a>
+        <div class="hero-footnote"><span><svg class="icon"><use href="#i-check"/></svg>Free to download</span><span><svg class="icon"><use href="#i-check"/></svg>বাংলা & English</span></div>
+        </div>
+
+        <figure class="hero-visual" data-reveal>
+          <a class="hero-image-link" href="#patient-story" aria-label="Explore Onubot and watch the patient story">
+            <picture><source srcset="assets/onubot-overview.webp" type="image/webp"><img src="assets/images1.png" width="1377" height="775" fetchpriority="high" decoding="async" alt="Onubot: less hassle, more peace of mind. App screens for prescription review, doctor booking, and your personal health profile."></picture>
+          </a>
+          <figcaption class="hero-visual-caption"><span>Your health, connected.</span><a href="#patient-story">See Onubot in action<svg class="icon"><use href="#i-play-video"/></svg></a></figcaption>
+        </figure>
+        </div>
+      </section>
+      <section id="app-journey" class="app-journey" aria-labelledby="journey-title" data-view="signin">
+        <div class="container">
+          <div class="journey-heading" data-reveal><span class="journey-eyebrow">A CLOSER LOOK AT ONUBOT</span><h2 id="journey-title">One app.<br>A more connected day.</h2><p>A familiar welcome. A space for your health.<br class="desktop-break"> A thoughtful desk for your practice.</p></div>
+          <div class="journey-layout">
+            <div class="journey-copy">
+              <div class="journey-tabs" role="tablist" aria-label="Explore the Onubot app screens"><button type="button" id="journey-tab-signin" role="tab" aria-selected="true" aria-controls="journey-panel-signin" data-view="signin">Sign in</button><button type="button" id="journey-tab-patient" role="tab" aria-selected="false" aria-controls="journey-panel-patient" tabindex="-1" data-view="patient">For patients</button><button type="button" id="journey-tab-doctor" role="tab" aria-selected="false" aria-controls="journey-panel-doctor" tabindex="-1" data-view="doctor">For doctors</button></div>
+              <div class="journey-panel" id="journey-panel-signin" role="tabpanel" aria-labelledby="journey-tab-signin" tabindex="0"><span class="journey-panel-label">A FAMILIAR FIRST STEP</span><h3>A warm welcome.<br>A simpler beginning.</h3><p>Start with the sign-in experience you know. Find your personal health space, or join the doctor network, from one welcome screen.</p><div class="journey-highlights"><span><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>One place to get started</span><span><svg class="icon" aria-hidden="true"><use href="#i-shield"/></svg>A path for patients and doctors</span></div></div>
+              <div class="journey-panel" id="journey-panel-patient" role="tabpanel" aria-labelledby="journey-tab-patient" tabindex="0" hidden><span class="journey-panel-label">YOUR EVERYDAY HEALTH SPACE</span><h3>Your next step.<br>A little easier to find.</h3><p>Bring a prescription, explore appointments, or start a conversation. The patient home keeps everyday care within reach.</p><div class="journey-highlights"><span><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>A place for your prescriptions</span><span><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Your next consultation, connected</span></div></div>
+              <div class="journey-panel" id="journey-panel-doctor" role="tabpanel" aria-labelledby="journey-tab-doctor" tabindex="0" hidden><span class="journey-panel-label">YOUR DAY, AT A GLANCE</span><h3>A calmer desk.<br>More room for care.</h3><p>See your availability, the day’s appointments, and your practice overview together. A workspace designed around the way doctors care.</p><div class="journey-highlights"><span><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>Schedule and availability together</span><span><svg class="icon" aria-hidden="true"><use href="#i-wallet"/></svg>A clear practice overview</span></div></div>
+              <a class="journey-app-link store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer">Explore the Android app<svg class="icon" aria-hidden="true"><use href="#i-play"/></svg></a>
+              <p class="journey-preview-note">Original app screenshots, shown without edits.</p>
+            </div>
+
+            <div class="journey-stage" aria-label="Animated preview of the three app screens">
+              <div class="journey-halo" aria-hidden="true"></div>
+              <div class="journey-phone" data-screen="signin" data-position="active" role="img" aria-label="Sign-in screen preview, with a Google sign-in option and a link to join the doctor network.">
+                <div class="journey-image-slot" data-screenshot="signin"><img src="assets/app-signin-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Original Onu sign-in screenshot with the healthcare photo collage, Google sign-in, and doctor network entry."></div>
+                
+                <span class="journey-phone-caption">A familiar welcome</span>
+              </div>
+              <div class="journey-phone" data-screen="patient" data-position="next" role="img" aria-label="Patient home preview with Upload Prescription, Book Appointment, and the Onu assistant." aria-hidden="true">
+                <div class="journey-image-slot" data-screenshot="patient"><img src="assets/app-patient-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Original patient home screenshot with Upload Prescription, Book Appointment, and the Onu assistant."></div>
+                
+                <span class="journey-phone-caption">Your health, connected</span>
+              </div>
+              <div class="journey-phone" data-screen="doctor" data-position="previous" role="img" aria-label="Doctor desk preview with availability, today's schedule, appointments, and financial overview." aria-hidden="true">
+                <div class="journey-image-slot" data-screenshot="doctor"><img src="assets/app-doctor-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Original doctor My Desk screenshot with patient availability, appointments, and financial overview."></div>
+                
+                <span class="journey-phone-caption">A calmer day at your desk</span>
+              </div>
+              <p class="journey-stage-hint"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg><span>Choose a view. See care come together.</span></p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="patient-story" class="section patient-story" aria-labelledby="patient-story-title">
+        <div class="story-layout container"><div class="story-copy" data-reveal><span class="eyebrow">FOR PATIENTS</span><h2 id="patient-story-title">See what a little<br>care can change.</h2><p>From your first health question to your next doctor visit, see how Onubot keeps care connected.</p></div></div>
+        <figure class="story-film parallax-film">
+              <div class="parallax-viewport" data-parallax><div class="story-video-frame"><video data-story-video controls muted loop playsinline preload="none" poster="assets/patient-poster.jpg" width="1920" height="1080" aria-label="Onubot patient introduction video" aria-describedby="patient-video-description"><source src="assets/patient-web.mp4" type="video/mp4"><p>Your browser does not support embedded video. <a href="assets/patient-web.mp4">Watch the patient video</a>.</p></video></div></div>
+              <figcaption class="container"><div class="film-caption"><strong>Onubot for patients</strong><span>1 min film</span></div></figcaption>
+              <p class="sr-only" id="patient-video-description">A one-minute introduction to Onubot for patients, showing the health assistant and app experience. Use the video controls to play, pause, seek, or enable sound.</p>
+            </figure>
+      </section>
+
+      <section id="capabilities" class="section capabilities container">
+        <div class="section-heading"><span class="eyebrow">CARE THAT CONNECTS THE DOTS</span><h2>Support across your<br>healthcare journey.</h2><p>From understanding a prescription to finding a doctor,<br class="desktop-break"> a little support makes all the difference.</p></div>
+        <div class="capability-grid capability-screens">
+          <article data-reveal class="capability-image-card capability-prescription">
+            <div class="feature-art capability-image-art">
+              <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>AFTER YOUR CONSULTATION</span>
+              <div class="capability-phone-presentation">
+                <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/consultation-prescription-original.png" width="960" height="1447" loading="lazy" decoding="async" alt="Onubot prescription showing the doctor’s medicine instructions and follow-up after a consultation."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-scan"/></svg></span></span>
+              </div>
+            </div>
+            <div class="capability-copy"><span class="card-number">01 / AFTER YOUR VISIT</span><h3>Your prescription, clearly.</h3><p>Your doctor’s prescription, medicine instructions, and follow-up advice. A clearer next step after your consultation.</p></div>
+          </article>
+          <article data-reveal class="capability-image-card capability-profile">
+            <div class="feature-art capability-image-art">
+              <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>YOUR PERSONAL HEALTH SPACE</span>
+              <div class="capability-phone-presentation">
+                <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/patient-profile-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onubot patient profile with personal details, body mass index, blood type, and health information."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span></span>
+              </div>
+            </div>
+            <div class="capability-copy"><span class="card-number">02 / YOUR HEALTH</span><h3>Your health, in one place.</h3><p>Keep your personal details and health profile together, so your next conversation starts with a clearer picture.</p></div>
+          </article>
+          <article data-reveal class="capability-image-card capability-doctors">
+            <div class="feature-art capability-image-art">
+              <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>FIND YOUR DOCTOR</span>
+              <div class="capability-phone-presentation">
+                <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/doctor-list-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onubot Find a Doctor screen showing specialties, consultation fees, and appointment buttons."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-calendar"/></svg></span></span>
+              </div>
+            </div>
+            <div class="capability-copy"><span class="card-number">03 / CONNECT WITH CARE</span><h3>A doctor, within reach.</h3><p>Explore doctors, specialties, and consultation fees. Find your next appointment, with the details right in front of you.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <section id="ocr-clarity" class="ocr-clarity" aria-labelledby="ocr-title">
+        <div class="ocr-layout container">
+          <div class="ocr-copy" data-reveal>
+            <span class="ocr-eyebrow"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>PRESCRIPTION OCR</span>
+            <h2 id="ocr-title">From handwriting<br>to a little clarity.</h2>
+            <p>One photo. A clearer view of your prescription. See how Onubot brings handwritten medicine names into an organized review screen.</p>
+            <div class="ocr-details">
+              <div><span class="ocr-detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg></span><div><h3>Start with a photo</h3><p>Capture the prescription you already have.</p></div></div>
+              <div><span class="ocr-detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-pill"/></svg></span><div><h3>Find the details together</h3><p>Review medicine names in a readable list.</p></div></div>
+              <div><span class="ocr-detail-icon"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg></span><div><h3>You stay in the loop</h3><p>Check the extracted details before saving.</p></div></div>
+            </div>
+            <div class="ocr-actions"><a class="button button-blue store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer">Try it in Onubot</a><button id="ocr-replay" class="ocr-replay" type="button" hidden><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>Replay scan</button></div>
+            <p class="ocr-note">A visual walkthrough using example images. Always confirm medicine names and instructions with your doctor or pharmacist.</p>
+          </div>
+
+          <div class="ocr-visual" aria-label="Before and after: a handwritten prescription and the Onubot review screen">
+            <span class="ocr-canvas-label">A LITTLE LESS GUESSWORK</span>
+            <figure class="ocr-shot ocr-original">
+              <div class="ocr-image-frame"><a class="ocr-image-link" href="assets/ocr-prescription-original.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the original prescription photograph"><img src="assets/ocr-prescription.webp" width="640" height="856" loading="lazy" decoding="async" alt="A photograph of a handwritten prescription before scanning."></a><span class="ocr-scan-beam" aria-hidden="true"></span></div>
+              <figcaption><span>BEFORE</span><strong>Your prescription</strong></figcaption>
+            </figure>
+            <div class="ocr-connector" aria-hidden="true"><span></span><div><svg class="icon"><use href="#i-spark"/></svg></div><span></span></div>
+            <figure class="ocr-shot ocr-result">
+              <div class="ocr-image-frame"><a class="ocr-image-link" href="assets/ocr-result-original.jpg" target="_blank" rel="noopener noreferrer" aria-label="Open the full Onubot prescription review screenshot"><img src="assets/ocr-result.webp" width="640" height="1256" loading="lazy" decoding="async" alt="Onubot's Review Prescription screen organizing the extracted medicine names for review."></a></div>
+              <figcaption><span>AFTER</span><strong>Organized in Onubot</strong></figcaption>
+            </figure>
+            <span class="ocr-finish"><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Ready for your review</span>
+          </div>
+          <span id="ocr-status" class="sr-only" role="status" aria-live="polite"></span>
+        </div>
+      </section>
+
+      <section id="tools" class="section tools-section">
+        <div class="container"><div class="section-heading"><span class="eyebrow">A LITTLE EVERYDAY INTELLIGENCE</span><h2>Thoughtful tools.<br>For real life.</h2><p>Designed around the questions, routines, and people<br class="desktop-break"> that make up your everyday health.</p></div><div class="tools-grid">
+          <article class="tool-card"><span class="tool-icon blue"><svg class="icon"><use href="#i-scan"/></svg></span><span class="tool-tag">Vision AI OCR</span><h3>From hard to read,<br>to easy to follow.</h3><p>Bring clarity to handwritten prescriptions with organized medicine names and instructions you can review.</p><a href="#ocr-clarity">See prescription clarity<span class="link-circle"><svg class="icon"><use href="#i-scan"/></svg></span></a></article>
+          <article class="tool-card"><span class="tool-icon violet"><svg class="icon"><use href="#i-pill"/></svg></span><span class="tool-tag">Medicine reminders</span><h3>A gentle nudge.<br>At the right time.</h3><p>Keep daily care on track with Bengali medicine reminders, built to fit into your routine.</p><a href="#download">Explore everyday reminders<span class="link-circle"><svg class="icon"><use href="#i-clock"/></svg></span></a></article>
+          <article class="tool-card"><span class="tool-icon teal"><svg class="icon"><use href="#i-video"/></svg></span><span class="tool-tag">BMDC verified doctors</span><h3>Expert care.<br>A little closer.</h3><p>Connect with a physician through online or in-person appointments, with your health story in one place.</p><a href="#download">Explore doctor consultations<span class="link-circle"><svg class="icon"><use href="#i-calendar"/></svg></span></a></article>
+        </div></div>
+      </section>
+
+      <section id="patient-assistant" class="assistant-showcase" aria-labelledby="patient-assistant-title" data-audience="patient">
+        <div class="container">
+          <div class="section-heading"><span class="eyebrow">ONUBOT FOR PATIENTS</span><h2 id="patient-assistant-title">Your questions.<br>Your care, connected.</h2><p>Talk through a health question in Bangla, or revisit the details of your last consultation.</p></div>
+          <div class="assistant-screen-grid">
+            <article data-reveal class="capability-image-card assistant-screen capability-prescription">
+              <div class="feature-art capability-image-art">
+                <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>HEALTH CONVERSATIONS</span>
+                <div class="capability-phone-presentation">
+                  <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/patient-chat-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onu patient conversation with a health question in Banglish and a Bengali response asking follow-up questions."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-chat"/></svg></span></span>
+                </div>
+              </div>
+              <div class="capability-copy"><span class="card-number">01 / ASK IN YOUR OWN WORDS</span><h3>Start with how you feel.</h3><p>Ask a question in your own words and continue the conversation in Bangla.</p></div>
+            </article>
+            <article data-reveal class="capability-image-card assistant-screen capability-profile">
+              <div class="feature-art capability-image-art">
+                <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-scan"/></svg>YOUR VISIT SUMMARY</span>
+                <div class="capability-phone-presentation">
+                  <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/patient-visit-summary-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onu patient conversation displaying a previous doctor visit summary and the prescription associated with that visit."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-scan"/></svg></span></span>
+                </div>
+              </div>
+              <div class="capability-copy"><span class="card-number">02 / KEEP CARE CONNECTED</span><h3>Pick up where care left off.</h3><p>Revisit the visit summary and prescribed instructions from your previous consultation.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="doctor-section doctor-media-section"><div class="doctor-section-copy container"><span class="eyebrow">FOR DOCTORS</span><h2>More time for patients.<br>More room for care.</h2><p>A calmer workspace for your practice. Keep patient information, appointments, and everyday tools together.</p><a class="story-text-link" href="#download">Explore Onubot for doctors</a></div><figure class="story-film parallax-film">
+              <div class="parallax-viewport" data-parallax><div class="story-video-frame"><video data-story-video controls muted loop playsinline preload="none" poster="assets/doctor-poster.jpg" width="1920" height="1080" aria-label="Onubot doctor workspace introduction video" aria-describedby="doctor-video-description"><source src="assets/doctor-web.mp4" type="video/mp4"><p>Your browser does not support embedded video. <a href="assets/doctor-web.mp4">Watch the doctor video</a>.</p></video></div></div>
+              <figcaption class="container"><div class="film-caption"><strong>Onubot for doctors</strong><span>1 min film</span></div></figcaption>
+              <p class="sr-only" id="doctor-video-description">A one-minute tour of the Onubot doctor experience, including the health desk, appointments, and practice workspace. Use the video controls to play, pause, seek, or enable sound.</p>
+            </figure><div class="doctor-features container"><article><span class="small-icon blue"><svg class="icon"><use href="#i-spark"/></svg></span><h3>AI patient analysis</h3><p>Support for your clinical workflow</p></article><article><span class="small-icon teal"><svg class="icon"><use href="#i-wallet"/></svg></span><h3>Clear payouts</h3><p>Direct payment options</p></article><article><span class="small-icon violet"><svg class="icon"><use href="#i-video"/></svg></span><h3>Video consultations</h3><p>Connect beyond the clinic</p></article><article><span class="small-icon peach"><svg class="icon"><use href="#i-chat"/></svg></span><h3>Personalized AI</h3><p>A companion for your practice</p></article></div></div>
+      <section id="doctor-assistant" class="assistant-showcase" aria-labelledby="doctor-assistant-title" data-audience="doctor">
+        <div class="container">
+          <div class="section-heading"><span class="eyebrow">ONUBOT FOR DOCTORS</span><h2 id="doctor-assistant-title">Your practice.<br>A clearer conversation.</h2><p>Bring patient history into view and manage consultation schedules in the same Onu conversation.</p></div>
+          <div class="assistant-screen-grid">
+            <article data-reveal class="capability-image-card assistant-screen capability-doctors">
+              <div class="feature-art capability-image-art">
+                <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-user"/></svg>PATIENT HISTORY</span>
+                <div class="capability-phone-presentation">
+                  <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/doctor-patient-history-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onu doctor conversation displaying a patient’s clinical history and previous consultation records."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-user"/></svg></span></span>
+                </div>
+              </div>
+              <div class="capability-copy"><span class="card-number">01 / UNDERSTAND THE CONTEXT</span><h3>See the story before the visit.</h3><p>Bring previous consultations and clinical history into view while preparing for your next patient.</p></div>
+            </article>
+            <article data-reveal class="capability-image-card assistant-screen capability-profile">
+              <div class="feature-art capability-image-art">
+                <span class="art-tag"><svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>CONSULTATION SCHEDULE</span>
+                <div class="capability-phone-presentation">
+                  <span class="capability-depth-stage"><span class="capability-device"><span class="capability-device-screen"><img src="assets/doctor-schedule-chat-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Onu doctor conversation confirming a consultation schedule after the doctor replies Yes."></span></span><span class="capability-depth-token" aria-hidden="true"><svg class="icon"><use href="#i-calendar"/></svg></span></span>
+                </div>
+              </div>
+              <div class="capability-copy"><span class="card-number">02 / PLAN YOUR DAY</span><h3>Plan your day in a conversation.</h3><p>Set a consultation date and time, review the details, and confirm before the schedule is saved.</p></div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+        <div id="connected-care" class="peace-panel care-panel container">
+          <div class="care-network" data-care-network role="img" aria-label="Smiling doctors and patients connected through the Onubot logo, with gentle pulses flowing between them.">
+            <svg class="care-network-art" viewBox="0 0 360 340" aria-hidden="true" focusable="false">
+              <defs>
+                <symbol id="care-avatar-doctor" viewBox="0 0 72 72">
+                  <circle cx="36" cy="36" r="35" fill="var(--avatar-bg,#e4eefc)"/>
+                  <path d="M10 71c1-16 9-24 26-24s25 8 26 24" fill="#fff" stroke="#d7e3ee"/>
+                  <rect x="30" y="41" width="12" height="13" rx="4" fill="var(--skin,#e8b89a)"/>
+                  <path d="M20 33c-4-19 4-26 17-26 15 0 20 12 14 28" fill="var(--hair,#465b70)"/>
+                  <ellipse cx="36" cy="29" rx="14" ry="17" fill="var(--skin,#e8b89a)"/>
+                  <path d="M22 23c2-12 8-15 15-15 9 0 14 6 15 16-7-1-11-6-13-9-4 5-10 7-17 8Z" fill="var(--hair,#465b70)"/>
+                  <g fill="#46515d"><circle cx="31" cy="29" r="1.1"/><circle cx="41" cy="29" r="1.1"/></g>
+                  <path d="M31 36q5 6 10 0" fill="none" stroke="#985f50" stroke-width="1.6" stroke-linecap="round"/>
+                  <path d="m27 48 9 9 9-9M36 57v14" fill="none" stroke="#d3e0eb" stroke-width="1.2"/>
+                  <path d="M24 51v7a7 7 0 0 0 14 0v-7m-7 14v3c0 4 14 4 14-4" fill="none" stroke="#6d9bb5" stroke-width="1.7"/>
+                  <circle cx="45" cy="61" r="3.5" fill="#edf7fb" stroke="#6d9bb5" stroke-width="1.7"/>
+                </symbol>
+                <symbol id="care-avatar-patient" viewBox="0 0 72 72">
+                  <circle cx="36" cy="36" r="35" fill="var(--avatar-bg,#e5f3ed)"/>
+                  <path d="M10 71c2-17 11-24 26-24s24 7 26 24" fill="var(--shirt,#8fc2b5)"/>
+                  <rect x="30" y="40" width="12" height="14" rx="5" fill="var(--skin,#d9a17d)"/>
+                  <path d="M20 34c-5-17 2-27 15-27 16 0 22 11 17 29" fill="var(--hair,#514e59)"/>
+                  <ellipse cx="36" cy="29" rx="14" ry="17" fill="var(--skin,#d9a17d)"/>
+                  <path d="M22 24c1-10 7-16 15-16 10 0 15 8 15 17-8 1-14-6-16-10-3 5-8 8-14 9Z" fill="var(--hair,#514e59)"/>
+                  <g fill="#46515d"><circle cx="31" cy="29" r="1.1"/><circle cx="41" cy="29" r="1.1"/></g>
+                  <path d="M30.5 36q5.5 7 11 0" fill="none" stroke="#985f50" stroke-width="1.7" stroke-linecap="round"/>
+                  <path d="M27 49q9 13 18 0" fill="none" stroke="#ffffff80" stroke-width="2"/>
+                </symbol>
+              </defs>
+              <circle class="care-orbit-outer" cx="180" cy="170" r="137"/>
+              <circle class="care-orbit-inner" cx="180" cy="170" r="92"/>
+              <g class="care-link-base"><path d="M48 74C112 74 108 170 154 170"/><path d="M48 256C112 256 108 170 154 170"/><path d="M206 170C252 170 248 74 312 74"/><path d="M206 170C252 170 248 256 312 256"/></g>
+              <g class="care-flows"><path class="care-flow care-flow-one" pathLength="100" d="M48 74C112 74 108 170 154 170"/><path class="care-flow care-flow-two" pathLength="100" d="M48 256C112 256 108 170 154 170"/><path class="care-flow care-flow-three" pathLength="100" d="M206 170C252 170 248 74 312 74"/><path class="care-flow care-flow-four" pathLength="100" d="M206 170C252 170 248 256 312 256"/></g>
+              <rect class="care-hub-halo" x="132" y="106" width="96" height="124" rx="30"/>
+              <rect class="care-hub-card" x="138" y="112" width="84" height="112" rx="24"/>
+              <image href="assets/onubot-mark.png" x="155" y="123" width="50" height="67" preserveAspectRatio="xMidYMid meet"/>
+              <text class="care-hub-name" x="180" y="209" text-anchor="middle">Onubot</text>
+              <g class="care-person care-person-one"><use href="#care-avatar-doctor" x="12" y="38" width="72" height="72"/><text class="care-person-label" x="48" y="125" text-anchor="middle">Doctor</text></g>
+              <g class="care-person care-person-two" style="--skin:#c88d6c;--hair:#374859;--avatar-bg:#e6edf7"><use href="#care-avatar-doctor" x="12" y="220" width="72" height="72"/><text class="care-person-label" x="48" y="307" text-anchor="middle">Doctor</text></g>
+              <g class="care-person care-person-three" style="--skin:#edc1a1;--hair:#765b50;--shirt:#8ebeb0"><use href="#care-avatar-patient" x="276" y="38" width="72" height="72"/><text class="care-person-label" x="312" y="125" text-anchor="middle">Patient</text></g>
+              <g class="care-person care-person-four" style="--skin:#be876b;--hair:#394856;--shirt:#b1bce0;--avatar-bg:#f0ecf9"><use href="#care-avatar-patient" x="276" y="220" width="72" height="72"/><text class="care-person-label" x="312" y="307" text-anchor="middle">Patient</text></g>
+              <g class="care-heart"><circle cx="180" cy="70" r="16" fill="#fff8f7" stroke="#f2dfdc"/><path d="M180 77s-9-5.5-9-10.5c0-4.8 6-6.4 9-1.5 3-4.9 9-3.3 9 1.5 0 5-9 10.5-9 10.5Z" fill="#dc9999"/></g>
+              <text class="care-together" x="180" y="330" text-anchor="middle">A little closer, together.</text>
+            </svg>
+          </div>
+          <div class="peace-copy"><span class="eyebrow">BUILT AROUND YOUR PEACE OF MIND</span><h2>Personal health.<br>Thoughtfully connected.</h2><p>A shared space for patients and doctors to connect, plan appointments, and keep the health story together.</p><div class="trust-points"><span><svg class="icon"><use href="#i-lock"/></svg>Your personal health vault</span><span><svg class="icon"><use href="#i-shield"/></svg>BMDC doctor network</span></div></div>
+        </div>
+      </section>
+
+      <section id="demo" class="section demo-section container">
+        <div class="section-heading"><span class="eyebrow"><svg class="icon"><use href="#i-chat"/></svg>INTERACTIVE PREVIEW</span><h2>A conversation.<br>A little more clarity.</h2><p>Get a feel for your health companion.<br class="desktop-break"> Try a question in বাংলা or English.</p></div>
+        <div class="chat-window"><div class="chat-header"><span class="chat-logo"><img src="assets/onubot-mark.png" width="26" height="35" alt="Onubot logo"></span><div><h3>Onubot health companion</h3><p>Say hello in বাংলা or English</p></div><span class="simulation-badge">APP PREVIEW</span><button class="reset-chat" type="button" aria-label="Reset conversation">Reset</button></div>
+          <div id="chat-messages" class="chat-messages" role="log" aria-label="Demo conversation" aria-live="polite" aria-relevant="additions">
+            <div class="message assistant-message"><span class="message-avatar" aria-hidden="true"><img src="assets/onubot-mark.png" width="18" height="24" alt=""></span><div class="message-bubble"><p lang="bn">আসসালামু আলাইকুম! আমি অনূবট। কীভাবে সাহায্য করতে পারি?</p><p>Hi! Say hello, or explore the app below.</p>
+              <a class="chat-app-card" href="#download" aria-label="Explore Onubot and go to the app download section"><span class="chat-app-card-logo"><img src="assets/onubot-mark.png" width="34" height="45" alt=""></span><span class="chat-app-card-copy"><strong>Onubot</strong><span>Your everyday health companion.</span><span class="chat-app-card-cta">Get the app<svg class="icon" aria-hidden="true"><use href="#i-play"/></svg><span>Google Play</span></span></span></a>
+            </div></div>
+          </div>
+          <div class="chat-bottom"><div class="quick-prompts"><span>Try asking</span><button type="button" data-prompt="How does prescription scanning work?">How does prescription scanning work?</button><button type="button" data-prompt="আমি কীভাবে চিকিৎসকের অ্যাপয়েন্টমেন্ট নিতে পারি?" lang="bn">কীভাবে চিকিৎসক বুক করব?</button></div><form id="chat-form" class="chat-form"><label class="sr-only" for="chat-input">Your question in Bengali or English</label><input id="chat-input" name="message" autocomplete="off" maxlength="1000" placeholder="বাংলা বা English — what’s on your mind?" required><button class="send-button" type="submit" aria-label="Send message"><svg class="icon"><use href="#i-send"/></svg></button></form><p class="demo-disclaimer"><svg class="icon"><use href="#i-lock"/></svg>A product preview, not medical advice. Messages stay in this page.</p></div>
+        </div>
+      </section>
+
+      <section id="download" class="download-section container">
+        <div class="download-panel">
+          <div class="download-copy"><span class="eyebrow eyebrow-light">A LITTLE STEP TOWARD BETTER HEALTH</span><h2>Your everyday care.<br>Starts right here.</h2><a class="button store-button store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-play"/></svg><span><small>Find it on</small>Google Play</span></a><span class="download-note">For Android &#183; Free to download &#183; &#x9ac;&#x9be;&#x982;&#x9b2;&#x9be; &amp; English</span></div>
+          <div class="download-art"><div class="download-ring ring-one" aria-hidden="true"></div><div class="download-ring ring-two" aria-hidden="true"></div><div class="install-scene" data-install-demo data-install-phase="ready">
+  <a class="phone download-phone download-store-preview install-phone" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer" aria-label="Get Onubot from Google Play. The phone shows an installation preview.">
+    <img src="assets/onubot-phone-cutout.svg" width="516" height="1042" loading="lazy" decoding="async" alt="Onubot before installation, shown in the transparent phone mockup.">
+    <span class="install-finished-screen"><img src="assets/onubot-installed-original.png" width="738" height="1600" loading="lazy" decoding="async" alt="Original supplied screenshot of Onubot after installation, with the Open button."></span>
+    <span class="install-tap" aria-hidden="true"></span><span class="install-progress-button" aria-hidden="true"><i></i><span>Installing&#8230;</span></span>
+  </a>
+  <div class="install-preview-caption"><span class="install-preview-eyebrow">INSTALL PREVIEW</span><span class="install-preview-state" aria-hidden="true"><i></i><span data-install-caption>Install</span></span><button class="install-replay" type="button" data-install-replay hidden>Replay install</button><span class="install-preview-note">Animation only. Get the app on Google Play.</span></div>
+  <span class="sr-only" data-install-status role="status" aria-live="polite"></span>
+</div></div>
+        </div>
+      </section>
+
+      <section id="faq" class="section faq-section container"><div class="section-heading"><span class="eyebrow">A LITTLE MORE TO KNOW</span><h2>Good questions.<br>Clear answers.</h2><p>Everything you need to get to know Onubot.</p></div><div class="faq-list"><details open><summary>Where can I download Onubot?<span class="faq-chevron"><svg class="icon"><use href="#i-chevron"/></svg></span></summary><p>Onubot is available for Android. Tap a Google Play button on this page to open the Onubot app listing and download it.</p></details><details><summary>How does the prescription scanner work?<span class="faq-chevron"><svg class="icon"><use href="#i-chevron"/></svg></span></summary><p>The scanner is designed to help organize handwritten prescription information into readable medicine names and instructions. Handwriting recognition can make mistakes, so always check the original prescription with a doctor or pharmacist before taking medicine.</p></details><details><summary>Can I book in-person and video doctor visits?<span class="faq-chevron"><svg class="icon"><use href="#i-chevron"/></svg></span></summary><p>The app brings together online and in-person doctor booking options. Available doctors, consultation times, fees, and locations are shown in the app.</p></details><details><summary>Does Onubot support Bangla?<span class="faq-chevron"><svg class="icon"><use href="#i-chevron"/></svg></span></summary><p>Yes. Onubot is designed for both Bengali and English, making everyday health information easier to understand in the language you feel most comfortable with.</p></details><details><summary>Is the assistant on this website a real AI?<span class="faq-chevron"><svg class="icon"><use href="#i-chevron"/></svg></span></summary><p>This website includes a scripted, interactive product preview. It is not connected to a live AI service, does not store your messages, and cannot diagnose conditions or prescribe treatments. Consult a qualified professional for medical advice.</p></details></div></section>
+    </main>
+
+    <footer class="site-footer container"><div class="footer-card"><div class="footer-notices"><div><h2><svg class="icon"><use href="#i-chat"/></svg>A companion, with care</h2><p>Onubot supports understanding and everyday health management. It does not replace a qualified clinician’s diagnosis, prescription, or medical advice.</p></div><div><h2><svg class="icon"><use href="#i-shield"/></svg>Your doctor network</h2><p>Consultation availability depends on the doctors listed in the app. Confirm a doctor’s qualifications and registration before starting a consultation.</p></div></div><div class="footer-main"><div class="footer-brand-block"><a class="brand brand-dark" href="#" aria-label="Onubot home"><span class="brand-mark"><svg class="icon"><use href="#i-spark"/></svg></span><span>Onubot</span></a><p>A little clarity. A little care.<br>A healthier everyday, together.</p><span class="footer-made">THOUGHTFULLY MADE FOR BANGLADESH</span><div id="company" class="footer-builder"><img src="assets/anchorblock-logo-main.avif" width="256" height="181" loading="lazy" decoding="async" alt="Anchorblock logo"><div class="footer-builder-copy"><span>Built by</span><p>Anchorblock Technology Ltd.</p></div></div></div><div class="footer-links"><span class="footer-overline">EXPLORE ONUBOT</span><a href="#capabilities">Your healthcare journey</a><a href="#tools">Everyday tools</a><a href="#demo">Try the preview</a></div><div class="footer-links"><span class="footer-overline">A LITTLE HELP</span><a class="footer-chat-link" href="mailto:sifat@anchorblock.vc?subject=Onubot%20enquiry" aria-label="Chat with us by email at sifat@anchorblock.vc"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span><strong>Chat with us</strong><small>sifat@anchorblock.vc</small></span></a><a href="#faq">Questions & answers</a><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a><button type="button" data-dialog="support">App support & account requests</button></div></div><div class="footer-bottom"><p>© <span id="year">2026</span> Onubot. All rights reserved.</p><span>বাংলা & English <span class="footer-separator">/</span> Care, connected.</span><a class="store-link" href="https://play.google.com/store/apps/details?id=com.anchorblock.onubot" target="_blank" rel="noopener noreferrer"><svg class="icon"><use href="#i-play"/></svg>Get the Android app</a></div></div></footer>
+
+    <a id="chat-with-us" class="contact-fab" href="mailto:sifat@anchorblock.vc?subject=Onubot%20enquiry" aria-label="Chat with us by email at sifat@anchorblock.vc" title="Email sifat@anchorblock.vc"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg><span>Chat with us</span></a>
+
+    <dialog id="info-dialog" class="info-dialog" aria-labelledby="dialog-title"><form method="dialog"><button class="dialog-close" aria-label="Close dialog">×</button></form><span class="tool-icon blue"><svg class="icon"><use href="#i-shield"/></svg></span><h2 id="dialog-title"></h2><p id="dialog-copy"></p><button class="button button-blue" id="dialog-done" type="button">Got it</button></dialog>
+</body>
+</html>

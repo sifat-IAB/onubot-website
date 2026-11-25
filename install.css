@@ -1,0 +1,69 @@
+#download .download-panel { min-height: 610px; }
+.install-scene { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; width: 100%; min-width: 0; padding-block: 12px; }
+#download .install-phone { width: clamp(185px,17vw,220px); isolation: isolate; }
+.install-finished-screen {
+  display: block;
+  position: absolute;
+  left: 5.2326%;
+  top: 2.2073%;
+  width: 89.3411%;
+  height: 95.2015%;
+  border-radius: 12.6% / 5.85%;
+  overflow: hidden;
+  background: #111;
+  opacity: 0;
+  transition: opacity .65s ease;
+  pointer-events: none;
+}
+#download .install-finished-screen img { display: block; width: 100%; height: 100%; object-fit: contain; filter: none; }
+[data-install-phase="installed"] .install-finished-screen { opacity: 1; }
+.install-tap { position: absolute; left: 42%; top: 32.6%; width: 20px; height: 20px; border-radius: 50%; background: #ffffff8c; border: 1px solid #fff; pointer-events: none; opacity: 0; }
+[data-install-phase="tap"] .install-tap { animation: install-tap .65s ease both; }
+.install-progress-button {
+  position: absolute;
+  left: 10.85%;
+  top: 32.34%;
+  width: 78.1%;
+  height: 4.7%;
+  display: grid;
+  place-items: center;
+  border-radius: 100px;
+  overflow: hidden;
+  background: #b2cdfa;
+  color: #17395d;
+  font-size: 8px;
+  font-weight: 600;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+}
+.install-progress-button > i { position: absolute; inset: 0; background: #80b2ef; transform: scaleX(0); transform-origin: left; }
+.install-progress-button > span { position: relative; z-index: 1; }
+[data-install-phase="installing"] .install-progress-button { opacity: 1; }
+[data-install-phase="installing"] .install-progress-button > i { animation: install-progress 2.8s cubic-bezier(.25,.5,.3,1) both; }
+.install-preview-caption { display: flex; flex-direction: column; align-items: center; gap: 6px; position: relative; z-index: 2; text-align: center; color: #dceaff; }
+.install-preview-eyebrow { font-size: 8px; letter-spacing: 1.5px; color: #bed4fa; }
+.install-preview-state { display: inline-flex; align-items: center; justify-content: center; gap: 7px; font-size: 12px; font-weight: 600; line-height: 1.5; }
+.install-preview-state > i { width: 6px; height: 6px; border-radius: 50%; background: #c6dafe; }
+[data-install-phase="installing"] .install-preview-state > i { animation: install-breathe 1.2s ease-in-out infinite; }
+[data-install-phase="installed"] .install-preview-state > i { background: #9fe6ca; }
+.install-replay { min-height: 44px; padding: 6px 11px; border: 1px solid #ffffff30; border-radius: 100px; background: #ffffff0c; color: #e4eeff; font-size: 10px; transition: background .2s; }
+.install-replay:hover { background: #ffffff1a; }
+.install-replay:disabled { opacity: .5; cursor: default; }
+.install-preview-note { font-size: 8px; font-weight: 400; color: #bdd3f7; }
+@keyframes install-tap { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.9); } }
+@keyframes install-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes install-breathe { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
+@media (max-width: 800px) { #download .download-panel { min-height: 570px; } #download .install-phone { width: 190px; } }
+@media (max-width: 600px) {
+  #download .download-panel { min-height: 0; }
+  #download .download-art { min-height: 530px; }
+  #download .install-phone { width: 200px; }
+  .install-scene { gap: 20px; }
+  .install-replay { min-height: 44px; padding-inline: 15px; }
+}
+@media (max-width: 360px) { #download .install-phone { width: 190px; } #download .download-art { min-height: 510px; } }
+@media (prefers-reduced-motion: reduce) {
+  .install-finished-screen, .install-progress-button { transition: none; }
+  .install-scene .install-tap, .install-scene .install-progress-button > i, .install-scene .install-preview-state > i { animation: none; }
+}

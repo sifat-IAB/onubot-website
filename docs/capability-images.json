@@ -1,0 +1,23 @@
+[
+  {
+    "file": "assets/consultation-prescription-original.png",
+    "bytes": 333811,
+    "sha256": "3bfb0b49acb9c1134052d670e983213c4bbcc247e4f4535826b6e30afde4cb41",
+    "width": 960,
+    "height": 1447
+  },
+  {
+    "file": "assets/patient-profile-original.png",
+    "bytes": 408548,
+    "sha256": "fe30fccf89727789a1ab3694056ffc4a31b309f55eb09e64291eda0cf95dbcf3",
+    "width": 738,
+    "height": 1600
+  },
+  {
+    "file": "assets/doctor-list-original.png",
+    "bytes": 341855,
+    "sha256": "2c75f20cdedbb5c2ad49cac3bd880900be5d2d1d8166699578c4e5be843e3170",
+    "width": 738,
+    "height": 1600
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "file": "assets/app-signin-original.png",
+    "bytes": 723286,
+    "width": 738,
+    "height": 1600,
+    "sha256": "3eb40b2065e6703d9018139e94cc81121d3b45af080ee1250a664e19162f2fed"
+  },
+  {
+    "file": "assets/app-patient-original.png",
+    "bytes": 337407,
+    "width": 738,
+    "height": 1600,
+    "sha256": "9917a7b5952842beea6f2762eeb06156d4eec34e7e4b667c752f544c6ccdf8eb"
+  },
+  {
+    "file": "assets/app-doctor-original.png",
+    "bytes": 344908,
+    "width": 738,
+    "height": 1600,
+    "sha256": "41adaa332c61b3b8bf9f8d937a5a762391bd448339a4fc42477146a24fddd50c"
+  },
+  {
+    "file": "assets/onubot-google-play-original.png",
+    "bytes": 338276,
+    "width": 738,
+    "height": 1600,
+    "sha256": "367e8259527e45e223f8eeb86f58c90d54b7af90ee2669be63be356822397e9a"
+  },
+  {
+    "file": "assets/onubot-installed-original.png",
+    "bytes": 369493,
+    "width": 738,
+    "height": 1600,
+    "sha256": "f47da75b0791de41c9439ca35884021cfc5a8d07672d1813f9b15d207c6e4919"
+  }
+]
