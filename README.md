@@ -17,6 +17,12 @@ npm run build
 
 The build produces a deployable static website in `dist/`. Upload that folder to any static hosting service.
 
+## Deploy on Vercel
+
+Import `sifat-IAB/onubot-website` at https://vercel.com/new. The included `vercel.json` selects the Other framework preset, runs `npm run build`, and publishes `dist/`. Use the repository root as the Root Directory. No environment variables or running Node.js server are required for the deployed static site. JavaScript modules are served with an explicit JavaScript content type, and the legal pages keep their existing `.html` URLs.
+
+After the first deployment, pushes to the connected production branch trigger new deployments. To use `onubot.anchorblock.vc`, add it in the Vercel project's Domains settings and apply the DNS records Vercel provides after verifying the new deployment.
+
 ## Included
 
 - Responsive navigation and layouts for phones, tablets, and desktops
