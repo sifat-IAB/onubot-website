@@ -4,16 +4,18 @@ import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { createReadStream, existsSync } from 'node:fs';
 import handleDeletionRequest from './api/deletion-request.mjs';
+import handleContactRequest from './api/contact.mjs';
 
 const root = fileURLToPath(new URL('.', import.meta.url));
 const localEnvironment = path.join(root, '.env.local');
 if (existsSync(localEnvironment) && typeof process.loadEnvFile === 'function') process.loadEnvFile(localEnvironment);
 const port = Number(process.env.PORT || 3000);
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.webp': 'image/webp', '.avif': 'image/avif', '.mp4': 'video/mp4', '.pdf': 'application/pdf' };
-const publicFiles = new Set(['index.html', 'privacy-policy.html', 'terms-and-conditions.html', 'delete-account.html', 'legal.css', 'styles.css', 'media.css', 'ocr.css', 'journey.css', 'install.css', 'app.mjs', 'demo.mjs', 'media.mjs', 'ocr.mjs', 'journey.mjs', 'install.mjs']);
-export function createStaticServer({ deletionHandler = handleDeletionRequest } = {}) {
+const publicFiles = new Set(['index.html', 'privacy-policy.html', 'terms-and-conditions.html', 'delete-account.html', 'contact.html', 'legal.css', 'styles.css', 'media.css', 'ocr.css', 'journey.css', 'install.css', 'app.mjs', 'demo.mjs', 'media.mjs', 'ocr.mjs', 'journey.mjs', 'install.mjs']);
+export function createStaticServer({ deletionHandler = handleDeletionRequest, contactHandler = handleContactRequest } = {}) {
   return http.createServer(async (request, response) => {
     if (request.url?.split('?')[0] === '/api/deletion-request') return deletionHandler(request, response);
+    if (request.url?.split('?')[0] === '/api/contact') return contactHandler(request, response);
     if (!['GET', 'HEAD'].includes(request.method)) {
       response.writeHead(405, { Allow: 'GET, HEAD' });
       return response.end('Method not allowed');

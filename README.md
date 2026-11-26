@@ -12,11 +12,17 @@ The patient/doctor showcase keeps all ten original app screenshots available in 
 
 The chat initially shows both supplied questions with shorter answers, one example doctor, and one compact app link. “Read full” reveals the original full conversation and three example doctors; “Show less” restores the short version without removing later visitor messages. Reset restores the initial four messages. Both modes flow naturally in the page without an inner scrollbar. The chat remains a scripted product preview, with clear sample-doctor labeling and no live AI connection. Main copy is 15–16px, labels are at least 12px, and Bengali text is 16px.
 
-The fixed header keeps anchor destinations visible. Mobile contact is an inline email link; the desktop floating contact hides while the chat or footer is visible. Facebook links to the supplied official page, while Instagram remains a labeled placeholder. The footer keeps four legal/contact actions together and Google Play on its own row. Repeated download badges and presentation notes have been removed.
+The fixed header keeps anchor destinations visible. Homepage contact actions lead to `contact.html`; the desktop floating contact hides while the chat or footer is visible. Facebook links to the supplied official page, while Instagram remains a labeled placeholder. The footer keeps four legal/contact actions together and Google Play on its own row. Repeated download badges and presentation notes have been removed.
+
+## Contact page
+
+`contact.html` follows the supplied reference: a warm off-white background, four contact cards, social links, an app-feedback shortcut, and a white message form. Scoped styles are in `assets/contact.css`, and the form controller and validation are in `assets/contact.mjs`. The desktop columns stack on mobile; controls support keyboard focus and reduced motion. Only the supplied Facebook profile is active; the other social profiles are labeled placeholders. App feedback focuses and prefills the same form.
+
+Messages post to `/api/contact` and use the existing SMTP configuration below to reach **sifat@anchorblock.vc**, with the visitor's email as Reply-To. `lib/form-handler.mjs` shares body limits, validation, origin checks, honeypot handling, rate limits, and provider-acceptance checks with the deletion endpoint. Success requires mail acceptance; failed submissions retain the visitor's text. Live delivery needs valid SMTP credentials. No external email application opens when submitting the form, and no real email is sent by automated tests.
 
 `delete-account.html` is linked from the footer’s “Delete Account & Data” action. It includes the supplied deletion, retention, identity-verification, and 30-day processing information, plus a validated form for full-account or specific-data requests. Submitting posts JSON to `/api/deletion-request`; the server sends a plain-text email directly to **admin@anchorblock.vc** with the subject “Data deletion request”. The submitted account email is used as Reply-To, and the recipient cannot be overridden by the visitor. The form opens no email application and shows success only after SMTP acceptance. Errors keep the entered fields available for retry. Requests do not delete account data automatically. Original PDF policy text remains intact.
 
-The handler in `api/deletion-request.mjs` works in the local server and as a Vercel Node.js function. It validates requests, limits payload size, rejects cross-site submissions, and applies a honeypot plus per-instance rate limiting. SMTP credentials and server code are excluded from the public static build. Form contents and raw SMTP errors are not logged.
+The handlers in `api/deletion-request.mjs` and `api/contact.mjs` work in the local server and as Vercel Node.js functions. They validate requests, limit payload size, reject cross-site submissions, and apply a honeypot plus per-instance rate limiting. SMTP credentials and server code are excluded from the public static build. Form contents and raw SMTP errors are not logged.
 
 ### Mail configuration
 
@@ -66,7 +72,7 @@ After the first deployment, pushes to the connected production branch trigger ne
 
 Terms & Conditions and Privacy Policy pages contain the full text extracted from the supplied PDFs, with section navigation and original PDF downloads. Independent responsive and print styles live in `legal.css`. The extraction is in `docs/legal/` and source PDFs in `assets/legal/`. Tests compare the policy text with the extraction and verify the source hashes. `npm run legal:generate` regenerates the pages.
 
-The footer displays the supplied Anchorblock logo and “Built by Anchorblock Technology Ltd.” The original company AVIF remains unchanged; `docs/company-logo.json` records its hash. “Chat with us” and footer contact links open an email to sifat@anchorblock.vc. The account-deletion form uses the separate server endpoint described above.
+The footer displays the supplied Anchorblock logo and “Built by Anchorblock Technology Ltd.” The original company AVIF remains unchanged; `docs/company-logo.json` records its hash. “Chat with us” and footer contact links open the contact page, which also offers a direct email link. The account-deletion form uses the separate server endpoint described above.
 
 ## Project structure and validation
 

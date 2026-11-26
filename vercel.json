@@ -4,7 +4,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "functions": {
-    "api/deletion-request.mjs": { "maxDuration": 30 }
+    "api/deletion-request.mjs": { "maxDuration": 30 },
+    "api/contact.mjs": { "maxDuration": 30 }
   },
   "headers": [
     {

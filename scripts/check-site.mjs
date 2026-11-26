@@ -4,7 +4,7 @@ import path from 'node:path';
 import assert from 'node:assert/strict';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
-const pages = ['index.html', 'privacy-policy.html', 'terms-and-conditions.html', 'delete-account.html'];
+const pages = ['index.html', 'privacy-policy.html', 'terms-and-conditions.html', 'delete-account.html', 'contact.html'];
 const voidTags = new Set(['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr', 'path', 'use', 'rect', 'circle']);
 const pageIds = new Map();
 for (const page of pages) {

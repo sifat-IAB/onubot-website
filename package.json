@@ -9,7 +9,7 @@
     "build": "node scripts/build.mjs",
     "check": "node scripts/check-site.mjs",
     "legal:generate": "node scripts/legal-pages.mjs",
-    "test": "node tests/demo.test.mjs && node tests/showcase.test.mjs && node tests/media.test.mjs && node tests/install.test.mjs && node tests/legal.test.mjs && node tests/deletion.test.mjs && node tests/deletion-api.test.mjs"
+    "test": "node tests/demo.test.mjs && node tests/showcase.test.mjs && node tests/media.test.mjs && node tests/install.test.mjs && node tests/legal.test.mjs && node tests/deletion.test.mjs && node tests/deletion-api.test.mjs && node tests/contact.test.mjs"
   },
   "dependencies": {
     "nodemailer": "^10.6.1"
