@@ -1,7 +1,7 @@
-import { getDemoReply } from './demo.mjs';
+import { getDemoReply, getDemoExample, getInitialDemoConversation } from './demo.mjs';
 import { createVideoController, getParallaxOffset, smoothParallaxOffset } from './media.mjs';
 import { initOcrPreview } from './ocr.mjs';
-import { initAppJourney } from './journey.mjs';
+import { initAudienceShowcase } from './assets/showcase.mjs';
 import { initInstallPreview } from './install.mjs';
 
 const menuButton = document.querySelector('.menu-toggle');
@@ -45,11 +45,107 @@ const chatInput = document.querySelector('#chat-input');
 const chatMessages = document.querySelector('#chat-messages');
 const sendButton = chatForm.querySelector('button');
 const appCard = chatMessages.querySelector('.chat-app-card').cloneNode(true);
-const initialMessage = chatMessages.firstElementChild.cloneNode(true);
+const chatWindow = document.querySelector('.chat-window');
+const chatExpand = document.querySelector('.chat-expand');
+function setChatExpanded(expanded) {
+  chatWindow.classList.toggle('chat-expanded', expanded);
+  chatExpand.setAttribute('aria-expanded', String(expanded));
+  chatExpand.setAttribute('aria-label', expanded ? 'Show the shorter example conversation' : 'Read the full example conversation');
+  chatExpand.textContent = expanded ? 'Show less' : 'Read full';
+  const samples = getInitialDemoConversation({ compact: !expanded });
+  for (const message of chatMessages.querySelectorAll('[data-seeded-message]')) {
+    const sample = samples[Number(message.dataset.seededMessage)];
+    if (!sample) continue;
+    message.classList.toggle('message-with-doctors', Boolean(sample.example?.doctors));
+    populateBubble(message.querySelector('.message-bubble'), sample.text, sample.role, sample.example, sample.showAppCard);
+  }
+}
+chatExpand.addEventListener('click', () => setChatExpanded(chatExpand.getAttribute('aria-expanded') !== 'true'));
 let replyTimer;
 const scrollChat = () => { chatMessages.scrollTop = chatMessages.scrollHeight; };
 
-function addMessage(text, role) {
+function addDoctorExample(bubble, example) {
+  const heading = document.createElement('h4');
+  heading.className = 'demo-doctor-heading';
+  heading.lang = 'bn';
+  heading.textContent = example.heading;
+  const introduction = document.createElement('p');
+  introduction.lang = 'bn';
+  introduction.textContent = example.introduction;
+  const cards = document.createElement('ul');
+  cards.className = 'demo-doctor-cards';
+  cards.setAttribute('aria-label', 'Example cardiology doctors');
+  for (const doctor of example.doctors) {
+    const card = document.createElement('li');
+    card.className = 'demo-doctor-card';
+    const identity = document.createElement('div');
+    identity.className = 'demo-doctor-identity';
+    const avatar = document.createElement('span');
+    avatar.className = `demo-doctor-avatar doctor-avatar-${doctor.avatar}`;
+    avatar.setAttribute('aria-hidden', 'true');
+    const details = document.createElement('div');
+    const name = document.createElement('h5');
+    name.lang = 'en';
+    name.textContent = doctor.name;
+    const verified = document.createElement('span');
+    verified.className = 'demo-doctor-verified';
+    verified.setAttribute('role', 'img');
+    verified.setAttribute('aria-label', 'Verified doctor in this example');
+    const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    icon.setAttribute('class', 'icon');
+    icon.setAttribute('aria-hidden', 'true');
+    const mark = document.createElementNS('http://www.w3.org/2000/svg', 'use');
+    mark.setAttribute('href', '#i-check');
+    icon.append(mark);
+    verified.append(icon);
+    name.append(' ', verified);
+    const qualifications = document.createElement('p');
+    qualifications.className = 'demo-doctor-qualifications';
+    qualifications.lang = 'en';
+    qualifications.textContent = doctor.qualifications;
+    details.append(name, qualifications);
+    identity.append(avatar, details);
+    const booking = document.createElement('div');
+    booking.className = 'demo-doctor-booking';
+    const fee = document.createElement('div');
+    fee.className = 'demo-doctor-fee';
+    const label = document.createElement('span');
+    label.textContent = 'Consultation Fee';
+    label.lang = 'en';
+    const amount = document.createElement('strong');
+    amount.textContent = doctor.fee.replace(/[০-৯]/g, digit => '০১২৩৪৫৬৭৮৯'.indexOf(digit));
+    fee.append(label, amount);
+    const link = document.createElement('a');
+    link.className = 'demo-appointment-link';
+    link.href = '#download';
+    link.lang = 'en';
+    link.textContent = 'Make Appointment';
+    link.setAttribute('aria-label', `Continue in the Onubot app to make an appointment with ${doctor.name}`);
+    booking.append(fee, link);
+    card.append(identity, booking);
+    cards.append(card);
+  }
+  const note = document.createElement('p');
+  note.className = 'demo-example-note';
+  note.lang = 'bn';
+  note.textContent = example.compact ? 'নমুনা প্রোফাইল। বর্তমান প্রাপ্যতা ও ফি অ্যাপে দেখুন।' : 'এটি একটি নমুনা তালিকা। বর্তমান প্রাপ্যতা ও ফি অ্যাপে যাচাই করুন। অ্যাপে চালিয়ে যেতে Make Appointment চাপুন।';
+  bubble.append(heading, introduction, cards, note);
+}
+
+function populateBubble(bubble, text, role, example, showAppCard = true) {
+  bubble.replaceChildren();
+  if (example?.doctors) addDoctorExample(bubble, example);
+  else {
+    const paragraph = document.createElement('p');
+    paragraph.className = 'message-text';
+    paragraph.textContent = text;
+    if (/[\u0980-\u09ff]/.test(text)) paragraph.lang = 'bn';
+    bubble.append(paragraph);
+  }
+  if (role === 'assistant' && showAppCard) bubble.append(appCard.cloneNode(true));
+}
+
+function addMessage(text, role, example = null, autoScroll = true, showAppCard = true) {
   const message = document.createElement('div');
   message.className = `message ${role}-message`;
   const avatar = document.createElement('span');
@@ -66,16 +162,47 @@ function addMessage(text, role) {
   }
   const bubble = document.createElement('div');
   bubble.className = 'message-bubble';
-  const paragraph = document.createElement('p');
-  paragraph.textContent = text;
-  if (/[\u0980-\u09ff]/.test(text)) paragraph.lang = 'bn';
-  bubble.append(paragraph);
-  if (role === 'assistant') bubble.append(appCard.cloneNode(true));
+  message.classList.toggle('message-with-doctors', Boolean(example?.doctors));
+  populateBubble(bubble, text, role, example, showAppCard);
   message.append(avatar, bubble);
   chatMessages.append(message);
   // Keep a long preview session bounded in memory.
   while (chatMessages.children.length > 31) chatMessages.children[1].remove();
-  scrollChat();
+  if (autoScroll && role === 'assistant') {
+    message.scrollIntoView({ block: 'start', behavior: 'auto' });
+  } else if (autoScroll && example) {
+    const top = message.getBoundingClientRect().top - chatMessages.getBoundingClientRect().top + chatMessages.scrollTop - 24;
+    chatMessages.scrollTo({ top });
+  } else if (autoScroll) scrollChat();
+  return message;
+}
+
+function restoreDemoConversation() {
+  chatMessages.setAttribute('aria-live', 'off');
+  chatMessages.replaceChildren();
+  setChatExpanded(false);
+  getInitialDemoConversation({ compact: true }).forEach((sample, index) => {
+    const message = addMessage(sample.text, sample.role, sample.example, false, sample.showAppCard);
+    message.dataset.seededMessage = String(index);
+  });
+  chatMessages.scrollTo({ top: 0, behavior: 'instant' });
+  requestAnimationFrame(() => chatMessages.setAttribute('aria-live', 'polite'));
+}
+
+restoreDemoConversation();
+
+// Inline email links remain available where a floating control could cover content.
+const contactFab = document.querySelector('#chat-with-us');
+if (contactFab && 'IntersectionObserver' in window) {
+  const visibleContactSections = new Set();
+  const contactObserver = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      if (entry.isIntersecting) visibleContactSections.add(entry.target);
+      else visibleContactSections.delete(entry.target);
+    }
+    contactFab.hidden = visibleContactSections.size > 0;
+  });
+  for (const section of document.querySelectorAll('#demo, #footer')) contactObserver.observe(section);
 }
 
 chatForm.addEventListener('submit', (event) => {
@@ -83,6 +210,7 @@ chatForm.addEventListener('submit', (event) => {
   if (sendButton.disabled) return;
   const input = chatInput.value.trim();
   const reply = getDemoReply(input);
+  const example = getDemoExample(input);
   if (!reply) return;
   addMessage(input, 'user');
   chatInput.value = '';
@@ -95,7 +223,7 @@ chatForm.addEventListener('submit', (event) => {
   scrollChat();
   replyTimer = setTimeout(() => {
     typing.remove();
-    addMessage(reply, 'assistant');
+    addMessage(reply, 'assistant', example);
     sendButton.disabled = false;
   }, 650);
 });
@@ -110,7 +238,7 @@ document.querySelectorAll('[data-prompt]').forEach((button) => {
 
 document.querySelector('.reset-chat').addEventListener('click', () => {
   clearTimeout(replyTimer);
-  chatMessages.replaceChildren(initialMessage.cloneNode(true));
+  restoreDemoConversation();
   chatInput.value = '';
   sendButton.disabled = false;
   chatInput.focus({ preventScroll: true });
@@ -138,7 +266,7 @@ dialog.addEventListener('click', (event) => {
 });
 document.querySelector('#year').textContent = new Date().getFullYear();
 initOcrPreview();
-initAppJourney();
+initAudienceShowcase();
 initInstallPreview();
 
 // Keep the page useful without animation support or when motion is disabled.
@@ -191,7 +319,8 @@ connection?.addEventListener('change', updatePlaybackPreference);
 
 // A short, frame-rate-independent ease softens wheel and touch scrolling.
 const parallaxScenes = [...document.querySelectorAll('[data-parallax]')].map(scene => ({
-  scene, current: 0, target: 0, visible: false
+  scene, current: 0, target: 0, visible: false,
+  direction: scene.dataset.parallaxDirection === '-1' ? -1 : 1
 }));
 let parallaxFrame = 0;
 let previousFrameTime = 0;
@@ -207,7 +336,7 @@ function renderParallax(timestamp) {
       const bounds = state.scene.getBoundingClientRect();
       state.visible = bounds.bottom >= 0 && bounds.top <= viewportHeight;
       const travel = motionPreference.matches ? 0 : parseFloat(getComputedStyle(state.scene).paddingTop) || 0;
-      state.target = getParallaxOffset(bounds.top, bounds.height, viewportHeight, travel);
+      state.target = getParallaxOffset(bounds.top, bounds.height, viewportHeight, travel) * state.direction;
       // Initialize offscreen frames at their resting entry position.
       if (!state.visible || motionPreference.matches) state.current = state.target;
     }
@@ -231,57 +360,6 @@ window.addEventListener('scroll', scheduleParallax, { passive: true });
 window.addEventListener('resize', scheduleParallax, { passive: true });
 motionPreference.addEventListener('change', scheduleParallax);
 scheduleParallax();
-
-// Pointer movement adds a small amount of depth; touch scrolling stays native.
-const depthHover = matchMedia('(hover: hover) and (pointer: fine)');
-const depthCards = [...document.querySelectorAll('.capability-image-card')];
-const depthPointers = new Map();
-let depthFrame = 0;
-const depthAllowed = () => depthHover.matches && !motionPreference.matches && !document.hidden;
-function resetDepthCard(card) {
-  depthPointers.delete(card);
-  card.classList.remove('depth-is-active');
-  card.style.removeProperty('--pointer-tilt-x');
-  card.style.removeProperty('--pointer-tilt-y');
-}
-function renderDepthPointers() {
-  depthFrame = 0;
-  if (!depthAllowed()) return resetDepthPointers();
-  // Read the stationary stage bounds before writing any styles.
-  const updates = [...depthPointers].map(([card, pointer]) => {
-    const bounds = pointer.stage.getBoundingClientRect();
-    const x = Math.max(-.5, Math.min(.5, (pointer.x - bounds.left) / bounds.width - .5));
-    const y = Math.max(-.5, Math.min(.5, (pointer.y - bounds.top) / bounds.height - .5));
-    return { card, x: (-y * 8).toFixed(2), y: (x * 12).toFixed(2) };
-  });
-  for (const { card, x, y } of updates) {
-    card.style.setProperty('--pointer-tilt-x', `${x}deg`);
-    card.style.setProperty('--pointer-tilt-y', `${y}deg`);
-    card.classList.add('depth-is-active');
-  }
-}
-function resetDepthPointers() {
-  if (depthFrame) cancelAnimationFrame(depthFrame);
-  depthFrame = 0;
-  for (const card of depthCards) resetDepthCard(card);
-}
-for (const card of depthCards) {
-  const stage = card.querySelector('.capability-image-art');
-  const trackPointer = event => {
-    if (!depthAllowed() || event.pointerType !== 'mouse') return;
-    depthPointers.set(card, { stage, x: event.clientX, y: event.clientY });
-    if (!depthFrame) depthFrame = requestAnimationFrame(renderDepthPointers);
-  };
-  stage.addEventListener('pointerenter', trackPointer);
-  stage.addEventListener('pointermove', trackPointer, { passive: true });
-  stage.addEventListener('pointerleave', () => resetDepthCard(card));
-  stage.addEventListener('pointercancel', () => resetDepthCard(card));
-}
-depthHover.addEventListener('change', resetDepthPointers);
-motionPreference.addEventListener('change', resetDepthPointers);
-document.addEventListener('visibilitychange', resetDepthPointers);
-window.addEventListener('blur', resetDepthPointers);
-window.addEventListener('scroll', resetDepthPointers, { passive: true });
 
 // Animate the care network only while it is on screen and the page is active.
 const careNetwork = document.querySelector('[data-care-network]');

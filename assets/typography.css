@@ -1,0 +1,232 @@
+/* Shared reading sizes, applied after the section styles. */
+:root {
+  --type-caption: 12px;
+  --type-small: 13px;
+  --type-copy: 15px;
+  --type-body: 16px;
+}
+
+.brand small { font-size: var(--type-caption); letter-spacing: .08em; }
+.desktop-nav a { font-size: 14px; }
+.nav-download,.hero-copy > .button,.ocr-actions .button,.ocr-replay,.journey-app-link,.story-text-link { font-size: 14px; }
+.hero-copy .hero-footnote { font-size: var(--type-small); line-height: 1.7; }
+.hero-visual-caption,.hero-visual-caption a { font-size: var(--type-small); }
+.hero-visual-caption { color: #526779; }
+
+.eyebrow,.hero-copy .eyebrow,.download-copy .eyebrow,
+.story-copy .eyebrow,.doctor-section-copy > .eyebrow,.peace-copy .eyebrow,
+.journey-eyebrow,.journey-panel-label,.ocr-eyebrow,
+.capability-image-card .art-tag,.capability-image-card .card-number,
+.tool-tag,.message-example-label,.install-preview-eyebrow,
+.footer-made,.footer-overline {
+  font-size: var(--type-caption);
+  line-height: 1.6;
+  letter-spacing: .06em;
+  max-width: 100%;
+  white-space: normal;
+}
+
+.section-heading > p,.story-copy > p,.doctor-section-copy > p,
+.journey-heading > p,.journey-panel > p,.ocr-copy > p,
+.capability-image-card .capability-copy p,.tool-card p,
+.peace-copy > p,.faq-list details p {
+  font-size: var(--type-body);
+  line-height: 1.8;
+}
+
+.journey-tabs button { font-size: 14px; min-height: 44px; }
+.journey-eyebrow,.journey-panel-label,.ocr-eyebrow { color: #526779; }
+.journey-highlights > span { font-size: 14px; line-height: 1.7; }
+.journey-preview-note,.journey-phone-caption,.journey-stage-hint { font-size: var(--type-caption); line-height: 1.6; color: #526779; }
+.journey-panel { min-height: 320px; }
+.journey-stage-hint { bottom: 0; }
+
+.video-hub .film-caption > span,.film-caption > span { font-size: var(--type-small); line-height: 1.65; color: #526779; }
+.film-caption strong { font-size: 15px; }
+.tool-card > a { font-size: var(--type-small); line-height: 1.6; }
+.doctor-media-section .doctor-features h3 { font-size: 17px; line-height: 1.5; }
+.doctor-media-section .doctor-features p { font-size: 14px; line-height: 1.75; }
+.trust-points > span { font-size: var(--type-small); line-height: 1.65; }
+.care-person-label { font-size: 13px; }
+.care-together { font-size: 12px; }
+
+.ocr-details h3 { font-size: 16px; line-height: 1.5; }
+.ocr-details p { font-size: 14px; line-height: 1.75; }
+.ocr-copy > .ocr-note { font-size: var(--type-small); line-height: 1.8; color: #526779; }
+.ocr-canvas-label { font-size: var(--type-caption); letter-spacing: .06em; padding-inline: 12px; }
+.ocr-shot figcaption > span { font-size: var(--type-caption); line-height: 1.6; letter-spacing: .03em; color: #526779; }
+.ocr-shot figcaption > strong { font-size: var(--type-small); line-height: 1.65; }
+.ocr-finish { font-size: var(--type-caption); color: #336b58; }
+.ocr-visual { padding-top: 68px; padding-bottom: 74px; }
+
+.chat-header h3 { font-size: 17px; line-height: 1.4; }
+.chat-header p { font-size: var(--type-caption); color: #52657e; line-height: 1.6; }
+.simulation-badge { font-size: var(--type-caption); letter-spacing: .03em; }
+.reset-chat { font-size: var(--type-small); min-height: 44px; color: #52657e; }
+.message-bubble { font-size: var(--type-copy); line-height: 1.8; }
+.message-bubble [lang="bn"] { font-size: var(--type-body); line-height: 1.9; }
+.message-example-label { font-size: var(--type-caption); }
+.message-bubble .demo-doctor-heading { font-size: 18px; line-height: 1.7; }
+.demo-doctor-identity h5 { font-size: 18px; }
+.demo-doctor-identity .demo-doctor-qualifications { font-size: 14px; }
+.demo-doctor-fee span { font-size: var(--type-small); }
+.demo-appointment-link { font-size: 14px; }
+.message-bubble .demo-example-note { font-size: var(--type-small); }
+.message-avatar { flex-shrink: 0; font-size: var(--type-caption); }
+.chat-app-card { width: min(100%,310px); }
+.chat-app-card-copy > strong { font-size: 15px; }
+.chat-app-card-copy > .chat-app-card-cta { font-size: var(--type-caption); gap: 5px; }
+.chat-app-card-cta > span { font-size: var(--type-caption); }
+.quick-prompts > span { font-size: var(--type-caption); color: #52657e; }
+.quick-prompts button { font-size: var(--type-small); min-height: 40px; padding: 8px 12px; color: #355b83; }
+.chat-form input { font-size: var(--type-body); }
+.chat-form input::placeholder { font-size: var(--type-copy); color: #64748b; }
+.demo-disclaimer { align-items: flex-start; font-size: var(--type-caption); line-height: 1.7; color: #52657e; }
+.demo-disclaimer .icon { flex-shrink: 0; margin-top: 3px; }
+.faq-list summary { font-size: 17px; line-height: 1.5; }
+
+.store-button small { font-size: var(--type-caption); }
+.download-note { font-size: var(--type-small); line-height: 1.8; }
+.download-rating { font-size: var(--type-caption); }
+.download-rating-stars .icon { width: 13px; height: 13px; }
+.install-preview-state { font-size: 14px; }
+.install-preview-note { font-size: var(--type-caption); line-height: 1.7; }
+.install-preview-caption { max-width: 280px; padding-inline: 12px; }
+.install-scene::before { bottom: 112px; }
+#download .download-panel { min-height: 660px; }
+
+.footer-notices h2 { font-size: var(--type-small); line-height: 1.65; }
+.footer-notices p,.footer-brand-block > p { font-size: 14px; line-height: 1.8; }
+.footer-builder { font-size: var(--type-small); }
+.footer-social strong { font-size: 14px; }
+.footer-social small { font-size: var(--type-caption); }
+.footer-actions { grid-template-columns: .95fr 1.35fr 1fr 1.35fr; }
+.footer-actions > a { font-size: var(--type-small); padding-inline: 8px; min-height: 44px; }
+.footer-bottom,.footer-trust { font-size: var(--type-caption); line-height: 1.8; }
+.footer-trust { max-width: 330px; }
+
+@media (max-width: 1000px) {
+  :root { --header-height: 76px; }
+  .desktop-nav { display: none; }
+  .site-header .menu-toggle { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px; flex-shrink: 0; width: 42px; height: 42px; border: 1px solid #ffffff50; border-radius: 50%; background: #ffffff12; }
+  .site-header .menu-toggle span { width: 19px; height: 2px; background: #fff; }
+  .footer-actions > a:not(.footer-store) { flex-direction: column; gap: 5px; padding: 9px 3px; text-align: center; }
+}
+
+@media (max-width: 700px) {
+  .chat-header { display: grid; grid-template-columns: 36px minmax(0,1fr) auto; gap: 8px 10px; }
+  .chat-header > div { grid-column: 2; grid-row: 1; min-width: 0; }
+  .chat-header .chat-logo { grid-column: 1; grid-row: 1; }
+  .chat-header h3 { font-size: 15px; }
+  .simulation-badge { grid-column: 2; grid-row: 2; justify-self: start; margin: 0; }
+  .reset-chat { grid-column: 3; grid-row: 1 / 3; padding-inline: 5px; }
+  .demo-doctor-identity { grid-template-columns: 42px minmax(0,1fr); }
+  .demo-doctor-identity h5 { font-size: 15px; }
+  .demo-doctor-identity .demo-doctor-qualifications { font-size: var(--type-small); }
+  .demo-doctor-fee span { font-size: var(--type-caption); }
+  .demo-doctor-booking { grid-template-columns: minmax(0,1fr); gap: 12px; }
+  .demo-appointment-link { width: 100%; font-size: var(--type-small); }
+}
+
+@media (max-width: 600px) {
+  :root { --header-height: 68px; }
+  .site-header { gap: 8px; }
+  .brand small { display: none; }
+  .nav-download { font-size: var(--type-small); }
+  .section-heading > p,.story-copy > p,.doctor-section-copy > p,
+  .journey-heading > p,.journey-panel > p,.ocr-copy > p,
+  .capability-image-card .capability-copy p,.tool-card p,
+  .peace-copy > p,.faq-list details p { font-size: var(--type-copy); }
+  .hero-visual-caption { flex-wrap: wrap; gap: 4px 12px; padding: 14px 16px; }
+  .hero-visual-caption a { min-height: 36px; }
+  .journey-tabs button { font-size: var(--type-small); padding-inline: 10px; }
+  .journey-highlights > span { font-size: var(--type-small); }
+  .journey-panel { min-height: 315px; }
+  .ocr-visual { padding-top: 66px; padding-bottom: 74px; }
+  .ocr-shot figcaption > strong { font-size: var(--type-caption); }
+  .ocr-finish { bottom: 18px; }
+  .tool-card h3 { font-size: 22px; line-height: 1.35; }
+  .message-bubble { font-size: var(--type-copy); }
+  .chat-app-card-cta .icon { display: none; }
+  .faq-list summary { font-size: 16px; }
+  .install-preview-caption { max-width: 260px; }
+  #download .download-panel { min-height: 0; }
+  #download .download-art { min-height: 570px; }
+  .footer-actions > a { font-size: var(--type-caption); padding-inline: 2px; }
+  .footer-actions > .footer-store { font-size: var(--type-small); padding-inline: 14px; }
+  .footer-made,.footer-overline { font-size: var(--type-caption); }
+  .footer-notices h2 { font-size: var(--type-caption); }
+  .footer-bottom,.footer-trust { font-size: var(--type-caption); }
+}
+
+@media (max-width: 380px) {
+  .site-header .nav-download { font-size: var(--type-caption); padding-inline: 10px; }
+  .site-header .menu-toggle { width: 36px; height: 36px; }
+  .footer-card { padding-inline: 14px; }
+  .footer-actions > a:not(.footer-store) { padding-inline: 1px; }
+  .chat-app-card-copy > .chat-app-card-cta { flex-wrap: nowrap; }
+  .chat-app-card-cta > span { display: none; }
+}
+
+/* A tighter vertical rhythm keeps related parts of the story together. */
+:root { --section-space: 72px; --heading-gap: 32px; }
+.section,.assistant-showcase { padding-block: var(--section-space); }
+#capabilities,#features,#faq { padding-block: var(--section-space); }
+.app-journey { padding-block: var(--section-space) 16px; }
+#ocr-clarity { padding-block: var(--section-space); }
+#patient-story.video-hub { padding-block: 64px 36px; }
+#demo { padding-block: 24px var(--section-space); }
+.section-heading,.journey-heading { margin-bottom: var(--heading-gap); }
+.section-heading h2 { margin-block: 14px 12px; }
+.journey-heading h2 { margin-block: 14px; }
+.journey-tabs { margin-bottom: 24px; }
+.journey-panel { min-height: 290px; }
+.video-hub-grid { margin-top: 26px; }
+.capability-image-card .capability-image-art { padding-top: 56px; }
+.assistant-screen .capability-image-art { padding-top: 64px; }
+.capability-image-card .capability-copy { padding-bottom: 22px; }
+.tool-card { padding-top: 24px; }
+#features > .doctor-media-section { padding-bottom: 0; }
+#doctor-assistant { padding-block: 56px; }
+.assistant-screen-grid { column-gap: 64px; }
+.site-footer { padding-bottom: 40px; }
+.footer-main { padding-block: 32px 24px; }
+
+.chat-header > div:not(.chat-header-actions) { min-width: 0; flex: 1; }
+.chat-header-actions { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
+.chat-expand { min-height: 44px; padding: 8px 12px; border: 1px solid #dce6ef; border-radius: 10px; background: #f4f8fd; color: #365b7e; font-size: 13px; font-weight: 600; }
+.chat-expand:hover { background: #eaf2fc; }
+.chat-expand:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.chat-messages { max-height: 560px; }
+.chat-window.chat-expanded .chat-messages { max-height: none; overflow: visible; }
+.chat-expanded .message { scroll-margin-top: calc(var(--header-height) + 20px); }
+.demo-contact-link { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; min-height: 44px; margin-top: 8px; color: #1d4ed8; font-size: 13px; line-height: 1.6; }
+.demo-contact-link .icon { width: 17px; height: 17px; flex-shrink: 0; }
+.demo-contact-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.demo-contact-link:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+.download-availability-icon { width: 18px; height: 18px; flex-shrink: 0; }
+.download-rating:hover { background: #ffffff24; }
+.download-rating:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+
+@media (max-width: 700px) {
+  .chat-header > div:not(.chat-header-actions) { grid-column: 2 / -1; grid-row: 1; }
+  .chat-header .simulation-badge { grid-column: 1 / 3; grid-row: 2; }
+  .chat-header > .chat-header-actions { grid-column: 3; grid-row: 2; display: flex; flex-direction: row; gap: 4px; }
+  .chat-header-actions .reset-chat { padding-inline: 6px; }
+  .assistant-screen-grid { row-gap: 28px; }
+  .contact-fab { display: none; }
+}
+
+@media (max-width: 600px) {
+  :root { --section-space: 44px; --heading-gap: 26px; }
+  #patient-story.video-hub { padding-block: 44px 24px; }
+  #demo { padding-top: 16px; }
+  #doctor-assistant { padding-block: 40px; }
+  .section-heading h2 { margin-block: 14px 12px; }
+  .journey-panel { min-height: 290px; }
+  .journey-tabs { margin-bottom: 22px; }
+  .video-hub-grid { margin-top: 24px; }
+  .capability-screens { gap: 20px; }
+  .site-footer { padding-bottom: 28px; }
+  .footer-main { padding-block: 26px 22px; }
+}

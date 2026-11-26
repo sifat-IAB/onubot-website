@@ -22,19 +22,19 @@ a:focus-visible, summary:focus-visible { outline: 3px solid #2563eb; outline-off
 .legal-toc a { display: block; padding: 5px 10px; border-radius: 7px; color: var(--muted); text-decoration: none; line-height: 1.6; }
 .legal-toc a:hover { background: #eaf0fe; color: var(--blue); }
 .legal-pdf { display: flex; justify-content: space-between; gap: 10px; padding: 12px 14px; border: 1px solid #cddcff; border-radius: 10px; background: white; text-decoration: none; font-weight: 600; }
-.legal-source { margin: 8px 14px 0; color: var(--muted); font-size: 11px; }
+.legal-source { margin: 8px 14px 0; color: var(--muted); font-size: 12px; }
 .legal-document { min-width: 0; padding: clamp(24px, 4vw, 56px); border: 1px solid var(--line); border-radius: 24px; background: white; }
 .legal-document-header { padding-bottom: 32px; border-bottom: 1px solid var(--line); }
 h1 { margin: 0 0 16px; font-size: clamp(30px, 4vw, 45px); line-height: 1.2; letter-spacing: -.045em; }
 .legal-company { color: var(--muted); font-size: 15px; }
 .legal-date { display: inline-block; margin: 16px 0 24px; padding: 5px 12px; border-radius: 7px; background: #edf3ff; color: #214caf; font-size: 12px; font-weight: 600; }
-.legal-contact { font-size: 13px; color: var(--muted); }
+.legal-contact { font-size: 14px; color: var(--muted); }
 .legal-contact p { margin: 5px 0; }
 .legal-document section { margin-top: 36px; scroll-margin-top: 110px; }
 h2 { margin: 0 0 16px; font-size: 21px; line-height: 1.5; letter-spacing: -.025em; }
 h3 { margin: 24px 0 7px; font-size: 16px; line-height: 1.5; }
 p { margin: 0 0 16px; overflow-wrap: anywhere; }
-.legal-document section p { color: #38465b; font-size: 15px; }
+.legal-document section p { color: #38465b; font-size: 16px; }
 .legal-document section p:last-child { margin-bottom: 0; }
 .legal-footer { width: min(1200px, calc(100% - 48px)); margin: 0 auto 40px; padding-top: 24px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; gap: 24px; font-size: 13px; }
 .legal-footer a { text-decoration: none; }

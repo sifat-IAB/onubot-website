@@ -57,7 +57,7 @@ Saved the latest attached phone mockup unchanged at `assets/onubot-phone-mockup-
 
 ## Installation preview
 
-Saved the newly attached installed-app screenshot unchanged at `assets/onubot-installed-original.png`. The download phone now plays a short tap/progress/Open sequence and reveals that screen inside the existing transparent frame. The sequence is clearly labeled as an animation preview, has a replay control, cancels unfinished timers offscreen or in a hidden tab, and shows a still final screen for reduced-motion preferences. The real Google Play link remains available. Three additional tests verify progression, cancellation, and static completion. Rendered the final screen/frame composition for asset QA.
+Saved the newly attached installed-app screenshot unchanged at `assets/onubot-installed-original.png`. The download phone automatically loops a short tap/progress/Open sequence inside the existing transparent frame, holds the finished screen for three seconds, and fades back before restarting. The replay control has been removed. The sequence is clearly labeled as an animation preview, cancels its timer offscreen or in a hidden tab, resumes automatically when visible, and shows a still final screen for reduced-motion preferences. Screen readers receive one static preview description instead of repeated phase announcements. The real Google Play link remains available. Four tests verify looping, cancellation during progress and the completed hold, and static completion. Rendered the final screen/frame composition for asset QA.
 
 ## Supplied legal documents
 
@@ -100,3 +100,17 @@ Chrome checks confirmed logo loading, natural and displayed proportions, exact c
 Added a floating “Chat with us” action and a footer contact link addressed to `sifat@anchorblock.vc`, with the subject “Onubot enquiry”. Both are native email links, so they work without JavaScript and open a configured email composer. The footer displays the address. Added keyboard focus styling, touch targets, safe-area positioning, reduced-motion handling, and footer clearance for the floating button.
 
 Chrome checks at 320, 390, 768, and 1440px verified the recipient and subject, pointer and keyboard activation, accessible button dimensions, no footer obstruction or page overflow, and no runtime errors. Intercepted email-link activation during verification so no email application opened and no message was sent. Verified the same links with JavaScript disabled, inspected desktop/mobile screenshots, and passed structure checks and the production build.
+
+## Compact video players
+
+Changed the patient and doctor films from edge-to-edge presentations to centered players capped at 880px wide, with responsive gutters and a maximum video height of 62svh. Reduced surrounding introduction/caption spacing and motion allowance to 8px on desktop and 5px on mobile. Softly rounded player edges keep the presentation minimal. Preserved complete 16:9 artwork, all native video controls, existing in-view playback behavior, and reduced-motion/data-saving support. No video files or JavaScript behavior changed.
+
+Chrome verified both players at 1440×900, 1280×720, 768×1024, 390×844, 320×568, and 844×390: full players fit the viewport, video proportions and containment are correct, play/pause works, and there is no horizontal overflow or runtime error. Reduced motion keeps videos paused and removes scroll transforms. Inspected desktop and mobile player screenshots. All 19 tests, structure checks, and the production build passed.
+
+## Shared video section
+
+Moved the existing doctor film alongside the patient film in one compact section at `#patient-story`, preserving the original anchor used by the hero. A shared heading and a two-column grid reduce duplication and page length; below 641px the films stack with a small gap. The 1040px-wide group retains responsive gutters, bounded player heights, original 16:9 artwork, and native video controls. The later doctor introduction and features remain, with no duplicate film or empty video space.
+
+Added a direction setting to the existing parallax scene state so the two frames move subtly in opposite directions within their reserved padding. The controller still batches reads/writes, settles using the existing frame-rate-independent easing, and respects reduced motion. No new animation library or media download was added.
+
+Chrome checks passed at six desktop, tablet, phone, and landscape sizes: exactly two films share the section, desktop columns and mobile stacking are correct, 16:9 frames remain fully visible, playback controls work, opposing scroll offsets stay within bounds, and there is no page overflow or runtime error. Reduced motion disables scrolling transforms and automatic playback. Inspected desktop/mobile renders and verified the built files match localhost. All 19 existing tests and the production build passed.

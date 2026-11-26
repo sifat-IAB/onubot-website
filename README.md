@@ -1,10 +1,39 @@
 # Onubot website
 
-A responsive landing page built from the supplied CSS design handoff. No dependencies or installation required; Node.js 20+ is sufficient.
+A responsive landing page built from the supplied CSS design handoff. Use Node.js 20.12+ and run `npm install`; Nodemailer handles server-side delivery of deletion requests.
+
+`assets/typography.css` sets a shared reading scale after the section styles: 15–16px main copy, 12–13px captions and labels, and 16px Bengali chat and form text. It also adjusts spacing for the larger text, keeps app cards compact and footer actions in their requested rows, and switches to the menu at tablet widths. Legal document body text is 16px in `legal.css`. The original app screenshots remain unchanged.
+
+The home-page header spans the viewport and stays fixed at the top. Its shared responsive height controls both the page’s top spacing and anchor offset, keeping navigation destinations visible below it. The mobile menu scrolls within the available screen height.
+
+The home page follows a shorter flow: hero, three benefits, a shared patient/doctor app showcase, OCR comparison, paired videos, chat preview, download, and FAQ/footer. Soft blue, lavender, and mint cards sit alongside white phone presentations. `assets/refresh.css` supplies the final visual layer: a light hero, clearer heading hierarchy, consistent spacing, subtle depth, and responsive layouts.
+
+The patient/doctor showcase keeps all ten original app screenshots available in one section. Tabs, screen buttons, previous/next arrows, keyboard navigation, a mobile selector, and touch swipes change the selected image. Each audience remembers its selected screen. Phones use CSS perspective and shadows with uncropped, proportional screenshots; reduced-motion settings remove transitions. The initial images load lazily, and later selections decode before appearing. `assets/showcase.mjs` contains the screen data and controller. Original image hashes remain recorded in `docs/original-app-images.json`, `docs/capability-images.json`, and `docs/assistant-images.json`.
+
+The chat initially shows both supplied questions with shorter answers, one example doctor, and one compact app link. “Read full” reveals the original full conversation and three example doctors; “Show less” restores the short version without removing later visitor messages. Reset restores the initial four messages. Both modes flow naturally in the page without an inner scrollbar. The chat remains a scripted product preview, with clear sample-doctor labeling and no live AI connection. Main copy is 15–16px, labels are at least 12px, and Bengali text is 16px.
+
+The fixed header keeps anchor destinations visible. Mobile contact is an inline email link; the desktop floating contact hides while the chat or footer is visible. Facebook links to the supplied official page, while Instagram remains a labeled placeholder. The footer keeps four legal/contact actions together and Google Play on its own row. Repeated download badges and presentation notes have been removed.
+
+`delete-account.html` is linked from the footer’s “Delete Account & Data” action. It includes the supplied deletion, retention, identity-verification, and 30-day processing information, plus a validated form for full-account or specific-data requests. Submitting posts JSON to `/api/deletion-request`; the server sends a plain-text email directly to **admin@anchorblock.vc** with the subject “Data deletion request”. The submitted account email is used as Reply-To, and the recipient cannot be overridden by the visitor. The form opens no email application and shows success only after SMTP acceptance. Errors keep the entered fields available for retry. Requests do not delete account data automatically. Original PDF policy text remains intact.
+
+The handler in `api/deletion-request.mjs` works in the local server and as a Vercel Node.js function. It validates requests, limits payload size, rejects cross-site submissions, and applies a honeypot plus per-instance rate limiting. SMTP credentials and server code are excluded from the public static build. Form contents and raw SMTP errors are not logged.
+
+### Mail configuration
+
+Google Workspace SMTP defaults for the supplied domain are in `.env.example`. The local server reads `.env.local` on startup; restart it after changing that file. Set these same server-side environment variables in the Vercel project before deploying:
+
+- `SMTP_HOST`: `smtp.gmail.com`
+- `SMTP_PORT`: `465`
+- `SMTP_USER`: `admin@anchorblock.vc`
+- `SMTP_FROM`: `Onubot <admin@anchorblock.vc>`
+- `SMTP_PASS`: the mailbox’s app password or the authenticated SMTP provider’s password
+
+The password is deliberately blank in the template and local setup. Delivery is unavailable until valid mail credentials are configured; the form reports a failure rather than confirming an unsent request. Keep credentials out of browser code and Git. Another SMTP provider can be used by changing these values. See [Nodemailer SMTP configuration](https://nodemailer.com/smtp) and [Vercel Node.js functions](https://vercel.com/docs/functions/runtimes/node-js).
 
 ## Run locally
 
 ```sh
+npm install
 npm run dev
 ```
 
@@ -15,65 +44,32 @@ npm test
 npm run build
 ```
 
-The build produces a deployable static website in `dist/`. Upload that folder to any static hosting service.
+The build produces the public website in `dist/`. The deletion form also requires the server endpoint; uploading only `dist/` to a static-only host will not enable email submission.
 
 ## Deploy on Vercel
 
-Import `sifat-IAB/onubot-website` at https://vercel.com/new. The included `vercel.json` selects the Other framework preset, runs `npm run build`, and publishes `dist/`. Use the repository root as the Root Directory. No environment variables or running Node.js server are required for the deployed static site. JavaScript modules are served with an explicit JavaScript content type, and the legal pages keep their existing `.html` URLs.
+Import `sifat-IAB/onubot-website` at https://vercel.com/new. The included `vercel.json` selects the Other framework preset, runs `npm run build`, and publishes `dist/`. Use the repository root as the Root Directory so Vercel also builds `api/deletion-request.mjs`. Configure the SMTP environment variables above for direct email delivery. Vercel runs the server function; a separate persistent Node.js server is unnecessary. JavaScript modules are served with an explicit JavaScript content type, and the legal pages keep their existing `.html` URLs.
 
 After the first deployment, pushes to the connected production branch trigger new deployments. To use `onubot.anchorblock.vc`, add it in the Vercel project's Domains settings and apply the DNS records Vercel provides after verifying the new deployment.
 
-## Included
+## Media and interactions
 
-- Responsive navigation and layouts for phones, tablets, and desktops
-- Original HTML/CSS app illustrations in place of missing exported images
-- Supplied Bengali app graphic, patient film, and doctor film integrated into the page
-- Optimized WebP image, 720p video copies, and lightweight video poster frames
-- Scroll reveals and muted in-view playback; offscreen videos pause, and user pauses are respected
-- Edge-to-edge patient and doctor films with scroll-linked parallax; the complete 16:9 video stays visible within reserved motion space
-- One native video control set for playback, sound, seeking, and fullscreen; automatic playback is disabled for reduced motion and data-saving preferences
-- Bilingual scripted conversation preview with quick prompts and reset
-- Accessible FAQ disclosures, dialogs, keyboard focus, and reduced-motion support
-- Safe text rendering for user messages; no backend, analytics, or stored messages
-- Dedicated OCR clarity section with supplied prescription/result images, lazy-loaded WebP copies totaling about 62 KB, and a replayable CSS scan animation
-- Interactive app journey using the exact original sign-in, patient home, and doctor desk screenshots; keyboard-accessible tabs and lightweight frame transitions
-- Connected-care graphic with the actual Onubot mark, smiling doctor/patient avatars, and gentle SVG connection pulses that pause offscreen
-- Complete Terms & Conditions and Privacy Policy pages extracted from the supplied PDFs, with section navigation, original PDF downloads, and footer links
 
-## Before launch
+- The supplied overview image and two films are preserved, with optimized WebP, 720p video copies, and lightweight posters used for display.
+- Both complete 16:9 videos appear once in `#patient-story`, side by side on larger screens and stacked on phones. Native controls support playback, sound, seeking, and fullscreen. Gentle opposing parallax is bounded to 8px on desktop and 5px on mobile. Playback pauses offscreen; reduced-motion and data-saving preferences disable automatic playback.
+- The dedicated OCR comparison uses the supplied prescription/result assets with a small CSS scan animation and replay control. It illustrates the example rather than performing OCR in the browser. Reduced-motion visitors see a still comparison.
+- The connected-care graphic uses the real Onubot mark and smiling doctor/patient illustrations. Its lightweight connection pulses pause offscreen and when the tab is hidden.
+- The download section uses the original phone cutout and installed-app screen with glass, depth, and soft shadows. Its automatic install preview loops while visible, has no replay button, and holds a still completed screen for reduced motion. Google Play links open the actual app listing.
+- Menu controls, gallery controls, FAQ disclosures, and forms support keyboard focus. All user chat content is rendered with `textContent`; demo messages stay in the page.
 
-The supplied image and both films are now used on the page. Remaining illustrative feature cards can be replaced with individual screenshots if available. Download buttons point to the Onubot Google Play listing used in the project. The supplied app Terms & Conditions and Privacy Policy are available from the footer, with their original wording and 24 November 2026 update date. Support details use the contact information in those documents.
+## Legal content and attribution
 
-The conversation is a clearly labeled product preview, not a live AI integration. Its responses are defined in `demo.mjs`. Connecting a real service requires a separate backend; never place API secrets in browser JavaScript.
+Terms & Conditions and Privacy Policy pages contain the full text extracted from the supplied PDFs, with section navigation and original PDF downloads. Independent responsive and print styles live in `legal.css`. The extraction is in `docs/legal/` and source PDFs in `assets/legal/`. Tests compare the policy text with the extraction and verify the source hashes. `npm run legal:generate` regenerates the pages.
 
-`index.html` contains page content, `styles.css` contains all layout and responsive rules, and `app.mjs` handles browser interactions. Google Fonts has local fallback fonts if unavailable.
+The footer displays the supplied Anchorblock logo and “Built by Anchorblock Technology Ltd.” The original company AVIF remains unchanged; `docs/company-logo.json` records its hash. “Chat with us” and footer contact links open an email to sifat@anchorblock.vc. The account-deletion form uses the separate server endpoint described above.
 
-Media layouts live in `media.css`, and playback behavior lives in `media.mjs`. Original files in `assets/` are preserved; the page uses the smaller `onubot-overview.webp`, `patient-web.mp4`, and `doctor-web.mp4` derivatives. The local server supports byte-range video requests for seeking.
+## Project structure and validation
 
-Both video figures sit outside the page's reading-width containers. Their introductions and captions remain constrained for readability. Parallax uses passive scroll listeners and one animation frame per update, batches layout reads before style writes, and turns off for reduced-motion preferences.
+`index.html` contains page content; `styles.css` and section styles establish the base layout. `assets/typography.css` and `assets/refresh.css` supply the final reading scale and visual refinements. `app.mjs` coordinates browser interactions, `demo.mjs` defines sample replies, and the media/OCR/install modules control their respective previews. Legacy `journey.css` and `journey.mjs` remain in the repository but are no longer loaded by the homepage.
 
-The media presentation uses light framing, restrained captions, and a muted hero gradient. Parallax has a small travel distance and frame-rate-independent easing, so it settles gently after scrolling. Native controls remain available without JavaScript; redundant custom control rows and overlay labels have been removed.
-
-The OCR section lives in `ocr.css` and `ocr.mjs`. Its animation runs once after the example images are ready and the scene enters view, with a replay button. It uses only CSS transforms/opacity and a small native JavaScript controller; there are no new runtime dependencies or continuously running animation loops. Reduced-motion visitors see the static comparison. Image links open the originals, while the page loads cropped, compressed display copies. The animation illustrates the supplied example and does not run actual OCR in the browser.
-
-`journey.css` and `journey.mjs` implement the three-view app showcase using the three exact PNG attachments saved as `assets/app-signin-original.png`, `assets/app-patient-original.png`, and `assets/app-doctor-original.png`. These are byte-for-byte copies of the attached images, with no cropping, recoloring, or recreated content. The complete status and navigation bars remain visible. Only the surrounding frames animate; the PNG files are unchanged. Images load lazily, and reduced-motion preferences disable frame animation. File sizes, dimensions, and SHA-256 digests are recorded in `docs/original-app-images.json`.
-
-The connected-care panel uses `assets/onubot-mark.png`, extracted from the original sign-in screenshot without changing that screenshot. Its doctor and patient illustrations are inline SVG, animated with small CSS connection pulses and gentle movement. Animation pauses while the panel is offscreen or the browser tab is hidden, and reduced-motion preferences show a still graphic. No animation library, video, or new runtime dependency is required.
-
-The chat preview uses the Onubot logo in its header and assistant avatars. Replies are short, scripted plain text in English or Bengali. The welcome message and every assistant reply include an app card linking to `#download`, where the Google Play button opens the direct app listing. Reset restores the welcome message and its card; messages are rendered as text, not HTML.
-
-The download section now uses the latest supplied phone mockup, with its outer white background removed. `assets/onubot-phone-cutout.svg` embeds the unchanged `assets/onubot-phone-mockup-original.png` and clips only the area outside the device silhouette. This preserves the original logo, UI text, and screen colors without generative reconstruction. The mockup links directly to the app listing, and the two descriptive lines beneath the heading remain removed. The earlier Google Play screenshot is retained as an unused original asset.
-
-`install.mjs` and `install.css` add a one-time install preview: a tap, lightweight progress animation, and transition to the exact supplied `assets/onubot-installed-original.png` screen inside the same transparent device frame. A replay button is provided. The sequence cancels when it leaves view, stops in hidden tabs, and shows the final still screen for reduced-motion preferences. It is explicitly labeled as a preview and does not install software. Both original image files remain unchanged, and no animation library is used.
-
-Legal content lives in `terms-and-conditions.html` and `privacy-policy.html`, with independent responsive and print styles in `legal.css`. These pages work without JavaScript. The full PDF text and line metadata are saved in `docs/legal/`; unchanged source PDFs are in `assets/legal/`. `npm run legal:generate` rebuilds the pages from the extracted JSON. Tests compare every document character (ignoring layout whitespace) with the extraction, verify the source PDF hashes, and check that both pages and downloads are served correctly.
-
-The healthcare journey section shows the exact supplied consultation prescription, patient profile, and doctor list images, in that order. Complete phone frames preserve every image's proportions with `object-fit: contain`. The phones stand directly on a white section background, with no surrounding cards, colored panels, display bases, or preview links. Captions remain beneath each phone. One-time entrance animations and gentle pointer movement live in `media.css` and `app.mjs`, with lazy-loaded images and a static reduced-motion view. `docs/capability-images.json` records the original image dimensions and SHA-256 digests. Chrome checks covered 320, 390, 768, 960, and 1440px widths, transparent phone surroundings, absence of links, overflow, and reduced-motion behavior.
-
-The phones use CSS perspective, visible frame depth, soft shadows, and floating feature icons. Mouse movement adds bounded tilt through a small controller in `app.mjs`, scheduled only after pointer events. Touch devices retain native scrolling. Leaving a phone presentation, scrolling, hiding the tab, losing focus, or changing motion preferences clears interactive tilt. No 3D library or extra image assets are needed. Browser checks verified pointer movement in both axes, image containment at tilt extremes, reset behavior, and live reduced-motion changes.
-
-`#patient-assistant` adds the two supplied patient conversation screenshots (Bangla health conversation, then previous-visit summary). `#doctor-assistant` adds the two doctor conversation screenshots (patient history, then schedule confirmation). Both groups reuse the open white background, complete 3D phone frames, soft reveals, bounded pointer tilt, and reduced-motion handling. They display two phones side by side on wider screens and stack below 700px, without background cards or preview links. All four original PNGs are unchanged; `docs/assistant-images.json` records their audience, dimensions, and SHA-256 digests. Chrome checks covered image grouping and order, loading, containment, no horizontal overflow or browser errors at five viewport widths, and reduced-motion behavior.
-
-The footer includes the supplied Anchorblock logo and the attribution “Built by Anchorblock Technology Ltd.” at `#company`. The original AVIF is preserved unchanged in `assets/anchorblock-logo-main.avif`; its dimensions and source hash are recorded in `docs/company-logo.json`. The development server serves AVIF with its correct image content type. The attribution is responsive and uses the original logo proportions.
-
-A floating “Chat with us” button and a matching footer contact open `mailto:sifat@anchorblock.vc?subject=Onubot%20enquiry`. They use the visitor's configured email application, work without JavaScript, and do not send a message automatically. The footer also displays the email address. The floating button has a visible keyboard focus state, mobile safe-area spacing, and at least a 44px touch target; extra footer spacing keeps it clear of footer links. Browser checks covered pointer and keyboard activation, recipient and subject, and layout at 320, 390, 768, and 1440px without launching an external email program.
+Run `npm run check` for local links, anchors, and page structure; `npm test` covers conversation modes, gallery grouping and original image hashes, video/install behavior, legal documents, deletion validation, and the server endpoint. `npm run build` produces the public assets. Google Fonts has local fallback fonts if unavailable.

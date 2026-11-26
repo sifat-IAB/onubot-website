@@ -1,6 +1,87 @@
 #download .download-panel { min-height: 610px; }
-.install-scene { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; width: 100%; min-width: 0; padding-block: 12px; }
-#download .install-phone { width: clamp(185px,17vw,220px); isolation: isolate; }
+.download-rating {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px 10px;
+  max-width: 100%;
+  margin-top: 22px;
+  padding: 9px 13px;
+  border: 1px solid #ffffff36;
+  border-radius: 100px;
+  background: linear-gradient(120deg,#ffffff1f,#ffffff0c);
+  box-shadow: inset 0 1px 0 #ffffff12,0 4px 14px #102d7d0a;
+  color: #eff6ff;
+  font-size: 10px;
+  line-height: 1.6;
+}
+.download-rating-stars { display: inline-flex; gap: 2px; color: #fcd34d; }
+.download-rating-stars .icon { width: 11px; height: 11px; fill: currentColor; stroke: none; }
+.download-rating strong { color: #fff; font-size: inherit; font-weight: 700; white-space: nowrap; }
+.download-rating-users { white-space: nowrap; }
+.download-rating-users::before { content: "\00b7"; margin-right: 8px; color: #dbeafe; }
+@media (max-width: 380px) {
+  .download-rating { gap: 5px 9px; padding: 9px 12px; }
+  .download-rating-users { flex-basis: 100%; }
+  .download-rating-users::before { content: none; }
+}
+.install-scene { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 22px; width: 100%; min-width: 0; padding-block: 12px; perspective: 1100px; }
+.install-scene::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 77px;
+  width: 240px;
+  height: 46px;
+  background: radial-gradient(ellipse,#08215355 0%,#102e6f24 38%,transparent 72%);
+  transform: translateX(-50%) rotate(-5deg);
+  pointer-events: none;
+}
+#download .install-phone {
+  width: clamp(185px,17vw,220px);
+  isolation: auto;
+  z-index: 1;
+  border-radius: 15% / 7.4%;
+  transform-style: preserve-3d;
+  transform: rotateX(6deg) rotateY(-16deg) rotateZ(6deg) translateZ(10px);
+  box-shadow: -12px 18px 24px #071c4c38,0 42px 50px -16px #081d5866;
+  transition: transform .65s cubic-bezier(.2,.7,.25,1),box-shadow .65s ease;
+}
+#download .install-phone > img { position: relative; z-index: 1; filter: none; }
+.install-phone::before {
+  content: "";
+  position: absolute;
+  inset: 1% 1.5% .4% 1%;
+  border: 1px solid #e6f2ff;
+  border-radius: 15% / 7.4%;
+  background: linear-gradient(115deg,#f4faff,#9caec3 28%,#e0eaf4 56%,#8097b3);
+  box-shadow: -1px 1px 0 #d5e3f1,-3px 2px 0 #8fa7bf,-5px 3px 0 #6f87a3,-7px 4px 0 #365475;
+  transform: translate3d(-2px,2px,-7px);
+  pointer-events: none;
+}
+.install-phone::after {
+  content: "";
+  position: absolute;
+  left: 5.2326%;
+  top: 2.2073%;
+  width: 89.3411%;
+  height: 95.2015%;
+  border: 1px solid #ffffff30;
+  border-radius: 12.6% / 5.85%;
+  background: linear-gradient(125deg,#ffffff24,transparent 30%,#ffffff04 46%,#ffffff0d 47%,transparent 67%);
+  box-shadow: inset 1px 1px 0 #ffffff36,inset -1px -1px 0 #08162b30;
+  transform: translateZ(2px);
+  z-index: 5;
+  pointer-events: none;
+}
+#download .install-phone:focus-visible { outline: 3px solid #d5f5ff; outline-offset: 8px; }
+@media (hover: hover) and (pointer: fine) {
+  #download .install-phone:hover {
+    transform: translateY(-5px) rotateX(3deg) rotateY(-9deg) rotateZ(4deg) translateZ(18px);
+    box-shadow: -15px 24px 30px #071c4c38,0 48px 60px -14px #081d5873;
+  }
+}
 .install-finished-screen {
   display: block;
   position: absolute;
@@ -14,10 +95,11 @@
   opacity: 0;
   transition: opacity .65s ease;
   pointer-events: none;
+  z-index: 2;
 }
 #download .install-finished-screen img { display: block; width: 100%; height: 100%; object-fit: contain; filter: none; }
 [data-install-phase="installed"] .install-finished-screen { opacity: 1; }
-.install-tap { position: absolute; left: 42%; top: 32.6%; width: 20px; height: 20px; border-radius: 50%; background: #ffffff8c; border: 1px solid #fff; pointer-events: none; opacity: 0; }
+.install-tap { position: absolute; left: 42%; top: 32.6%; width: 20px; height: 20px; border-radius: 50%; background: #ffffff8c; border: 1px solid #fff; pointer-events: none; opacity: 0; z-index: 3; }
 [data-install-phase="tap"] .install-tap { animation: install-tap .65s ease both; }
 .install-progress-button {
   position: absolute;
@@ -36,6 +118,7 @@
   opacity: 0;
   pointer-events: none;
   transition: opacity .2s;
+  z-index: 3;
 }
 .install-progress-button > i { position: absolute; inset: 0; background: #80b2ef; transform: scaleX(0); transform-origin: left; }
 .install-progress-button > span { position: relative; z-index: 1; }
@@ -47,9 +130,6 @@
 .install-preview-state > i { width: 6px; height: 6px; border-radius: 50%; background: #c6dafe; }
 [data-install-phase="installing"] .install-preview-state > i { animation: install-breathe 1.2s ease-in-out infinite; }
 [data-install-phase="installed"] .install-preview-state > i { background: #9fe6ca; }
-.install-replay { min-height: 44px; padding: 6px 11px; border: 1px solid #ffffff30; border-radius: 100px; background: #ffffff0c; color: #e4eeff; font-size: 10px; transition: background .2s; }
-.install-replay:hover { background: #ffffff1a; }
-.install-replay:disabled { opacity: .5; cursor: default; }
 .install-preview-note { font-size: 8px; font-weight: 400; color: #bdd3f7; }
 @keyframes install-tap { 0% { opacity: 0; transform: scale(.4); } 30% { opacity: 1; } 100% { opacity: 0; transform: scale(1.9); } }
 @keyframes install-progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
@@ -58,12 +138,14 @@
 @media (max-width: 600px) {
   #download .download-panel { min-height: 0; }
   #download .download-art { min-height: 530px; }
-  #download .install-phone { width: 200px; }
+  #download .install-phone { width: 200px; transform: rotateX(5deg) rotateY(-11deg) rotateZ(5deg); }
+  .install-scene::before { width: 210px; }
   .install-scene { gap: 20px; }
-  .install-replay { min-height: 44px; padding-inline: 15px; }
 }
 @media (max-width: 360px) { #download .install-phone { width: 190px; } #download .download-art { min-height: 510px; } }
 @media (prefers-reduced-motion: reduce) {
+  #download .install-phone { transition: none; }
+  #download .install-phone:hover { transform: rotateX(6deg) rotateY(-16deg) rotateZ(6deg) translateZ(10px); }
   .install-finished-screen, .install-progress-button { transition: none; }
   .install-scene .install-tap, .install-scene .install-progress-button > i, .install-scene .install-preview-state > i { animation: none; }
 }

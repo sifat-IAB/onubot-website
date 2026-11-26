@@ -21,14 +21,21 @@ function setup() {
   return { animation, phases, advance, tasks };
 }
 
-test('install preview moves from tap to installing to the supplied installed screen', () => {
-  const { animation, phases, advance } = setup();
+test('install preview automatically repeats after holding the installed screen and resetting', () => {
+  const { animation, phases, advance, tasks } = setup();
   animation.start();
   assert.deepEqual(phases, ['tap']);
   advance(650);
   assert.deepEqual(phases, ['tap', 'installing']);
   advance(2800);
   assert.equal(phases.at(-1), 'installed');
+  advance(3000);
+  assert.equal(phases.at(-1), 'ready');
+  advance(900);
+  assert.equal(phases.at(-1), 'tap');
+  advance(650);
+  assert.equal(phases.at(-1), 'installing');
+  assert.equal(tasks.size, 1, 'Only the next transition should be scheduled');
 });
 
 test('leaving the preview cancels pending transitions without falsely completing it', () => {
@@ -42,12 +49,31 @@ test('leaving the preview cancels pending transitions without falsely completing
   assert.ok(!phases.includes('installed'));
 });
 
-test('a static reduced-motion finish has no animation timers and can be replayed later', () => {
-  const { animation, phases, tasks } = setup();
+test('leaving during the installed hold cancels the next automatic cycle', () => {
+  const { animation, phases, advance, tasks } = setup();
+  animation.start();
+  advance(650);
+  advance(2800);
+  assert.equal(phases.at(-1), 'installed');
+  animation.reset();
+  const count = phases.length;
+  advance(20000);
+  assert.equal(tasks.size, 0);
+  assert.equal(phases.length, count);
+  assert.equal(phases.at(-1), 'ready');
+  animation.start();
+  assert.equal(phases.at(-1), 'tap');
+});
+
+test('a static reduced-motion finish has no timers until automatic motion is enabled again', () => {
+  const { animation, phases, advance, tasks } = setup();
   animation.start();
   animation.finish();
   assert.equal(phases.at(-1), 'installed');
   assert.equal(tasks.size, 0);
+  const count = phases.length;
+  advance(20000);
+  assert.equal(phases.length, count);
   animation.start();
   assert.equal(phases.at(-1), 'tap');
 });

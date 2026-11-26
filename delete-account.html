@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#234e84">
+  <meta name="description" content="Request deletion of your Onubot account or specific data. No sign-in required. Requests are verified and processed manually by the Onubot team.">
+  <title>Delete your account &amp; data | Onubot</title>
+  <link rel="icon" href="assets/onubot-mark.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+Bengali:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/deletion.css">
+  <script type="module" src="assets/deletion.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#deletion-main">Skip to content</a>
+  <header class="deletion-header">
+    <a class="deletion-brand" href="index.html" aria-label="Onubot home"><span><img src="assets/onubot-mark.png" width="24" height="32" alt=""></span>Onubot</a>
+    <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to home</a>
+  </header>
+
+  <main id="deletion-main" class="deletion-main">
+    <div class="deletion-intro">
+      <span class="page-eyebrow">Account &amp; data deletion</span>
+      <h1>Delete your Onubot<br class="desktop-break"> account &amp; data</h1>
+      <p>You can ask us to permanently delete your Onubot account and the data associated with it. Submit your request below and our team will verify and process it manually. You don’t need to be signed in to ask.</p>
+      <span class="signin-note"><span aria-hidden="true">✓</span> No sign-in required</span>
+    </div>
+
+    <div class="deletion-layout">
+      <div class="deletion-information">
+        <section class="information-panel delete-panel" aria-labelledby="gets-deleted-title">
+          <span class="panel-number" aria-hidden="true">01</span>
+          <h2 id="gets-deleted-title">What gets deleted</h2>
+          <ul>
+            <li>Your profile and account details (name, email, phone)</li>
+            <li>Conversation and chat history with the assistant</li>
+            <li>Uploaded documents, lab reports, and scanned images</li>
+            <li>Saved symptoms, medication lists, and health history</li>
+          </ul>
+        </section>
+
+        <section class="information-panel retain-panel" aria-labelledby="may-keep-title">
+          <span class="panel-number" aria-hidden="true">02</span>
+          <h2 id="may-keep-title">What we may keep</h2>
+          <ul>
+            <li>Anonymized, non-identifiable usage statistics that cannot be linked back to you</li>
+            <li>Records we are legally required to retain (e.g. proof of a transaction), kept only as long as the law requires</li>
+          </ul>
+        </section>
+
+        <div class="deletion-assurances">
+          <p><strong>Within 30 days.</strong> We complete verified deletion requests within 30 days and email you when it’s done.</p>
+          <p><strong>We verify it’s you.</strong> To protect your data, we confirm the request comes from the account owner before deleting.</p>
+        </div>
+      </div>
+
+      <section class="request-panel" aria-labelledby="request-title">
+        <span class="page-eyebrow">Your request</span>
+        <h2 id="request-title">Request deletion</h2>
+        <p class="form-intro">Fill this in and send your request directly to the team.</p>
+        <p class="delivery-note" id="delivery-note">Your request is sent directly to <strong>admin@anchorblock.vc</strong> for manual review. We’ll verify account ownership before deleting any data.</p>
+
+        <form id="deletion-form" action="/api/deletion-request" method="post" aria-describedby="delivery-note">
+          <div class="form-trap" aria-hidden="true"><label for="deletion-website">Website</label><input id="deletion-website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+          <p id="deletion-errors" class="error-summary" role="alert" hidden></p>
+          <div class="field">
+            <label for="deletion-name">Name</label>
+            <input id="deletion-name" name="name" type="text" autocomplete="name" required maxlength="120" aria-describedby="name-error">
+            <p id="name-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="deletion-email">Account email</label>
+            <input id="deletion-email" name="email" type="email" autocomplete="email" required maxlength="254" aria-describedby="email-hint email-error">
+            <p id="email-hint" class="field-hint">Use the email you signed up with.</p>
+            <p id="email-error" class="field-error" hidden></p>
+          </div>
+          <div class="field">
+            <label for="deletion-phone">Phone number <span>(optional)</span></label>
+            <input id="deletion-phone" name="phone" type="tel" autocomplete="tel" maxlength="40" aria-describedby="phone-hint phone-error">
+            <p id="phone-hint" class="field-hint">If you added a phone number to your profile, it helps us find your account.</p>
+            <p id="phone-error" class="field-error" hidden></p>
+          </div>
+
+          <fieldset class="scope-options" aria-describedby="scope-error">
+            <legend>What should we delete?</legend>
+            <label class="scope-option"><input type="radio" name="scope" value="entire" checked required><span><strong>Delete my entire account</strong><small>Removes your profile, conversation history, saved documents, and all stored health data.</small></span></label>
+            <label class="scope-option"><input type="radio" name="scope" value="specific"><span><strong>Delete specific data only</strong><small>Keep my account, but erase the data I describe below (e.g. a scanned report or chat history).</small></span></label>
+            <p id="scope-error" class="field-error" hidden></p>
+          </fieldset>
+
+          <div class="field">
+            <label for="deletion-details">Anything we should know? <span id="details-requirement">(optional)</span></label>
+            <textarea id="deletion-details" name="details" rows="4" maxlength="1000" aria-describedby="details-hint details-error"></textarea>
+            <p id="details-hint" class="field-hint">If deleting specific data, tell us exactly what. Up to 1,000 characters.</p>
+            <p id="details-error" class="field-error" hidden></p>
+          </div>
+
+          <div class="consent-field">
+            <label for="deletion-consent"><input id="deletion-consent" name="consent" type="checkbox" required aria-describedby="consent-error"><span>I understand that deleting my data is permanent and cannot be undone.</span></label>
+            <p id="consent-error" class="field-error" hidden></p>
+          </div>
+          <button class="submit-request" type="submit" disabled>Submit deletion request <span aria-hidden="true">→</span></button>
+        </form>
+
+        <p id="deletion-feedback" class="submission-feedback" role="status" aria-live="polite" tabindex="-1" hidden></p>
+        <noscript><p class="delivery-note">Enable JavaScript to submit the form, or email admin@anchorblock.vc with the subject “Data deletion request”.</p></noscript>
+
+        <p class="email-alternative">Prefer email? Write to <a href="mailto:admin@anchorblock.vc?subject=Data%20deletion%20request">admin@anchorblock.vc</a> with the subject “Data deletion request”. See our <a href="privacy-policy.html">privacy policy</a> for how we handle your data.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="deletion-footer"><span>Onubot · Built by Anchorblock Technology Ltd.</span><nav aria-label="Privacy and terms"><a href="privacy-policy.html">Privacy Policy</a><a href="terms-and-conditions.html">Terms &amp; Conditions</a></nav></footer>
+</body>
+</html>
